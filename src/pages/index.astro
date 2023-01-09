@@ -2,23 +2,32 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>Hello everyone!</h1>
-			<p>
-				Welcome to my website, This simple intro page created by <a href="https://astro.build">Astro</a> hosted on <a href="https://vercel.com">Vercel</a> and the codes shared on my <a href="https://github.com/rezawm/rezahedi.dev">Github</a>. I'm just start working on my website and here will be updated in the coming days.
-			</p>
-			<p><img src="reza.jpg" alt="Reza Zahedi in NYC"></p>
-		</main>
-		<Footer />
-	</body>
+<head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+<body class="dark">
+	<Header title={SITE_MAIN_TITLE} />
+	<main class="home">
+		<div>
+			<div class="intro">
+				<div>
+					<h1>Crafting Digital Experiences!</h1>
+					<p>
+						Welcome to my website, This simple intro page created by <a href="https://astro.build">Astro</a> hosted on <a href="https://vercel.com">Vercel</a> and the codes shared on my <a href="https://github.com/rezawm/rezahedi.dev">Github</a>. I'm just start working on my website and here will be updated in the coming days.
+					</p>
+				</div>
+				<figure>
+					<img src="assets/reza.jpg" alt="Reza Zahedi in NYC">
+					<figcaption>Photo by Gary Gelb - NYC</figcaption>
+				</figure>
+			</div>
+		</div>
+	</main>
+	<Footer />
+</body>
 </html>

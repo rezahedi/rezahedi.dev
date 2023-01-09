@@ -3,30 +3,35 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+:root body.dark{
+	--text: #ffffffcc;
+	--bg: #100818;
+}
+:root body.light{
+	--text: #100818;
+	--bg: #eee;
+}
+
+a{
+	transition:color 0.2s;
+	box-sizing:border-box;
+}
 body {
 	font-family: Verdana, sans-serif;
 	margin: auto;
 	padding: 20px;
-	max-width: 65ch;
 	text-align: left;
-	background-color: #fff;
+	background-color: var(--bg);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
-	color: #444;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-	color: #222;
+	color: var(--text);
 }
 a {
-	color: #3273dc;
+	color: #da3654;
+}
+a:hover{
+	color: inherit;
 }
 nav a {
 	margin-right: 10px;
@@ -50,7 +55,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: #f2f2f2;
+	background-color: var(--bg);
 }
 pre {
 	padding: 1rem;
@@ -65,3 +70,36 @@ blockquote {
 	margin: 0px;
 	font-style: italic;
 }
+figure>figcaption {
+	font-size:0.7rem;
+	opacity:0.5;
+}
+ul{list-style:none;margin:0;padding:0}
+
+.content ul{list-style:disc;margin-left:20px}
+
+header>div, main>div, footer>div{width:1200px;margin:0 auto}
+
+header{padding:5px 0}
+header h2{margin:0}
+header h2 a{font-size:2rem;font-weight:100;color:inherit;text-decoration:none}
+header>div{display:flex}
+nav{flex-grow:1}
+nav ul{display:flex;justify-content:center}
+nav a{display:inline-block;padding:10px 30px;color:inherit;text-decoration:none}
+nav a:hover{color:#da3654}
+.theme-mode button{background:none;border:0px;margin:0;padding:10px;width:44px;height:44px;cursor:pointer;transition:.2s;overflow:hidden}
+.theme-mode button:hover{transform:scale(.8)}
+.dark #darkIcon, .light #lightIcon{width:0;height:0;padding:0;opacity:0}
+.theme-mode svg{fill:var(--text)}
+
+
+main{margin:30px 0;min-height:60vh}
+
+.home{}
+
+.intro h1{font-size:3.5rem;margin-bottom:60px;}
+.intro p{font-size:1.3rem}
+.intro{display:flex;height:70vh;min-height:500px;gap:40px}
+.intro>*{flex-basis:100%}
+.intro figure img{width:100%;object-fit:cover;border-radius:60px;border-bottom-left-radius:0;aspect-ratio:6/5}
