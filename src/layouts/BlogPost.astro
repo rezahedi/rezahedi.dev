@@ -19,23 +19,24 @@ const {
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-		</style>
-	</head>
+<head>
+	<BaseHead title={title} description={description} />
+	<style>
+	.title {
+		font-size: 2em;
+		margin: 0.25em 0 0;
+	}
+	hr {
+		border-top: 1px solid #ddd;
+		margin: 1rem 0;
+	}
+	</style>
+</head>
 
-	<body>
-		<Header />
-		<main>
+<body class="dark">
+	<Header />
+	<main>
+		<div>
 			<article>
 				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				<h1 class="title">{title}</h1>
@@ -50,7 +51,8 @@ const {
 				<hr />
 				<slot />
 			</article>
-		</main>
-		<Footer />
-	</body>
+		</div>
+	</main>
+	<Footer />
+</body>
 </html>
