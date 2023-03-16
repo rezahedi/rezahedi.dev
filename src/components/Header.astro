@@ -34,19 +34,58 @@ const { title = SITE_MAIN_TITLE } = Astro.props;
 	</div>
 </header>
 <script>
+// set/get cookie functions
+function setCookie(cname, cvalue) {
+	var d = new Date();
+	d.setTime( d.getTime() + 365*24*60*60*1000 );
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for(var i = 0; i <ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return false;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	// check cookie for theme mode
+	if (getCookie('theme') == 'dark') {
 		document.body.classList.remove('light');
 		document.body.classList.add('dark');
+	} else if (getCookie('theme') == 'light') {
+		document.body.classList.remove('dark');
+		document.body.classList.add('light');
+	
+	// check system theme mode
+	} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		document.body.classList.remove('light');
+		document.body.classList.add('dark');
+		setCookie('theme', 'dark');
 	} else {
 		document.body.classList.remove('dark');
 		document.body.classList.add('light');
+		setCookie('theme', 'light');
 	}
 });
+
+// toggle theme mode button click event
 document.querySelectorAll('.theme-mode button').forEach(function(button) {
 	button.addEventListener('click', function() {
 		document.body.classList.toggle('dark');
 		document.body.classList.toggle('light');
+
+		// set theme mode in cookie
+		setCookie( 'theme', (document.body.classList.contains('dark') ? 'dark' : 'light') );
 	});
 });
 </script>
