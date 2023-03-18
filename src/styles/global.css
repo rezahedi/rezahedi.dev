@@ -81,7 +81,7 @@ header>div, main>div, footer>div{margin:0 7%}
 
 header{padding:5px 0}
 header h2{margin:0}
-header h2 a{font-size:1.4rem;line-height:1.4rem;font-weight:100;color:inherit;text-decoration:none}
+header h2 a{font-size:1.4rem;line-height:1.4rem;color:inherit;text-decoration:none}
 header>div{display:flex;align-items:center}
 nav{flex-grow:1}
 nav ul{display:flex;justify-content:center; gap:30px}
@@ -156,7 +156,7 @@ footer p{font-size:.85rem;margin:0}
 	nav ul{flex-direction:column;width:100%;position:absolute;left:0;top:55px;height:0vh;overflow:hidden;background-color:var(--bg);z-index:1; box-sizing: border-box;justify-content:flex-start;transition:height .4s ease-out}
 	nav ul li:first-child{margin-top:60px}
 	nav ul li{text-align:center}
-	nav ul li a{margin:5px;padding:10px 20px;font-size:1.5rem}
+	nav ul li a{display:block;margin:5px;padding:10px 20px;font-size:1.5rem}
 	#menubtn{display:block;float:right;padding:10px;width:44px;height:44px}
 	#menubtn svg:last-child{display:none}
 
