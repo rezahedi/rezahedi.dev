@@ -35,7 +35,7 @@ a{
 	box-sizing:border-box;
 }
 body {
-	font-family: Sans, sans-serif;
+	font-family: Sans, sans-serif, Verdana;
 	margin: auto;
 	padding: 10px 20px;
 	text-align: left;
