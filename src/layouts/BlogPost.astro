@@ -34,14 +34,16 @@ const {
 	</style>
 </head>
 
-<body class="dark">
+<body class="dark blog">
 	<Header />
 	<main>
-		<header style="clip-path:polygon(0 0,100% 0,100% 82%,0 100%);background-color:gray;min-height:400px">
+		<header class="article-header">
 			<div class="container">
-				<h2>{category}</h2>
-				<h1 class="title">{title}</h1>
-				{pubDate && <time>{pubDate}</time>}
+				<div class="article-title">
+					<h2>{category}</h2>
+					<h1 class="title">{title}</h1>
+					{pubDate && <time>{pubDate}</time>}
+				</div>
 			</div>
 		</header>
 

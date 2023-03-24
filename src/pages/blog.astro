@@ -29,10 +29,10 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	}
 	</style>
 </head>
-<body class="dark">
+<body class="dark blog">
 	<Header title={SITE_MAIN_TITLE} />
 	<main>
-		<header style="clip-path:polygon(0 0,100% 0,100% 82%,0 100%);background-color:gray;min-height:400px">
+		<header class="article-header">
 			<div class="container">
 				<h1>Blog</h1>
 			</div>
