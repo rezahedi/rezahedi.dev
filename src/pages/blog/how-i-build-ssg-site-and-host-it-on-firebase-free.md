@@ -11,14 +11,14 @@ I'm always amazed by Bamyan, a city in the central highlands of Afghanistan. The
 We decided to gather reliable content and information and create a website to introduce more people to the beauty of Bamyan. Through our website, we hope to showcase the city's rich culture, history, and people, and to make it more accessible to a wider audience. I was excited to use my skills to help promote Bamyan and share its wonders with the world.
 
 <figure class="image">
-  <img src="/public/blog/visit-bamyan.com.jpg" alt="Visit Bamyan website homepage screenshot">
+  <img src="/blog/visit-bamyan.com.jpg" alt="Visit Bamyan website homepage screenshot">
   <figcaption><a href="https://visit-bamyan.com">https://visit-bamyan.com</a></figcaption>
 </figure>
 
 So I sketched the first-look pages in [InVision Freehand tool](https://www.invisionapp.com/inside-design/freehand-online-whiteboard-for-everyone/). Freehand is a great digital whiteboard for brainstorming with your team. Then designed the user interface and the prototype in Figma.
 
 <figure class="image">
-  <img src="/public/blog/invision-freehand.png" alt="InVision Freehand">
+  <img src="/blog/invision-freehand.png" alt="InVision Freehand">
   <figcaption><a href="https://freehandapp.com">InVision Freehand</a></figcaption>
 </figure>
 
@@ -29,7 +29,7 @@ A static site generator is a software application that creates HTML pages from t
 As SSGs compiling files into static HTML, CSS, and JavaScript, This reduces the risk of security attacks and makes the website more scalable and cost-effective to host. Developers can also use version control systems to manage changes to the code and optimize the website for search engines. SSGs are a great option for websites that require speed, security, scalability, and cost-effectiveness.
 
 <figure class="image">
-  <img src="/public/blog/hexo-js.png" alt="Hexojs">
+  <img src="/blog/hexo-js.png" alt="Hexojs">
   <figcaption><a href="https://github.com/hexojs/hexo">Hexojs</a></figcaption>
 </figure>
 
