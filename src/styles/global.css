@@ -6,6 +6,8 @@
 :root{
 	--projects:#ffa2006e;
 	--blog:#0085ff6e;
+
+	--article-width:800px;
 }
 :root body.dark{
 	--text: #ffffffcc;
@@ -139,7 +141,7 @@ main{margin:0;flex:1 1 auto}
 }
 .article-header>div{flex:1 1 auto}
 .article-title{
-	width:100%;
+	max-width:var(--article-width);
 	display:flex;
 	flex-direction:column;
 	text-align:left;
@@ -149,7 +151,7 @@ main{margin:0;flex:1 1 auto}
 .article-title time{font-size:.75rem;opacity:.8}
 
 .article-content{
-	max-width:800px;
+	max-width:var(--article-width);
 }
 
 figure>figcaption{text-align:center;font-size:.9rem}
