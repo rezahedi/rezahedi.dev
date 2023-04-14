@@ -70,4 +70,4 @@ Login to Firebase and create your project, then install the Firebase CLI, login,
 > firebase deploy --only hosting
 ```
 
-That’s all I did to create and host my website, [visit-bamyan.com](https://visit-bamyan.com/), and all the [visit-bamyan.com codes are available on my Github](https://github.com/rezawm/visit-bamyan.com) to review.
+That’s all I did to create and host my website, [visit-bamyan.com](https://visit-bamyan.com/), and all the [visit-bamyan.com codes are available on my Github](https://github.com/rezahedi/visit-bamyan.com) to review.

@@ -13,4 +13,4 @@ By this plugin you can add shipment tracking information to your orders in WooCo
 
 Note: This codes may not work properly in lower version of Wordpress!
 
-Github: https://github.com/rezawm/wc-simple-shipment-tracking
+Github: https://github.com/rezahedi/wc-simple-shipment-tracking
