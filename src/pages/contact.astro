@@ -3,20 +3,175 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
+
+import { sanitizeHTML, isEmail, nl2br } from '../utils';
+import sendGrid from '@sendgrid/mail';
+
+sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
+
+const errors = { name : '', email : '', message : '', server: '' };
+let successMessage = false;
+if (Astro.request.method === 'POST') {
+	try{
+		// Getting posted data from the form
+		const postedData = await Astro.request.formData();
+
+		const honeyPot = postedData.get('lastname');
+		if( honeyPot.length > 0 ){
+			console.log('Honey Pot filled, form submission is a spam.');
+			successMessage = true;
+			return;
+		}
+
+		const name = sanitizeHTML( postedData.get('name') );
+		const email = postedData.get('email');
+		const message = sanitizeHTML( postedData.get('message') );
+
+		// Server side posted data validation
+		if( typeof name !== 'string' || name.length < 2 || name.length > 50)
+			errors.name = 'Name must be between 2 and 50 characters';
+		if( typeof email !== 'string' || isEmail(email)==false )
+			errors.email = 'Email is not valid';
+		if( typeof message !== 'string' || message.length < 10 || message.length > 5000)
+			errors.message = 'Message must be between 10 and 5000 characters';
+		
+		if( errors.name.length === 0 && errors.email.length === 0 && errors.message.length === 0){
+			// TODO: Send email through the SendGrid API
+
+			const msg = {
+				to: 'r.zahedi@gmail.com', // Change to your recipient
+				from: `"${name}" <${email}>`, // Change to your verified sender
+				subject: `The rezahedi.dev Contact Form submittion from ${name}`,
+				// text: '',
+				// new line to break the line in the email
+				html: nl2br(message),
+			}
+			await sendGrid.send(msg).then(() => {
+				successMessage = true;
+			}).catch((error) => {
+				throw error;
+			});
+
+			successMessage = true;
+		}
+
+	} catch (error) {
+		errors.server = 'Something went wrong, Please try again or contact me directly.';
+		console.error(error);
+	}
+}
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<style>
+main .container{
+	display:flex;
+	gap:100px;
+}
+@media screen and (max-width: 1024px) {
+	main .container{
+		flex-direction:column;
+		gap:40px;
+	}
+}
+main .container > *{
+	flex-basis: 100%;
+	flex-grow:1;
+}
+.success {
+	display: block;
+	color: green;
+}
+p.error {
+	display: block;
+	color: var(--red);
+}
+input.error, textarea.error {
+	border-bottom-color:var(--red);
+}
+input, textarea{
+	width: 100%;
+	padding:10px 0;
+	border:none;
+	border-bottom:2px solid #333;
+	background:none;
+	color:var(--text-color);
+	font-family:inherit;
+	font-size:1rem;
+	margin-bottom:10px;
+}
+input:focus, textarea:focus{
+	outline:none;
+	border-bottom-color:#ccc;
+}
+textarea{
+	resize:vertical;
+	min-height:130px;
+}
+button{
+	color:var(--text-color);
+	padding:10px 30px;
+	border-radius:50px;
+	border:2px solid #333;
+	background:none;
+	font-family:inherit;
+	font-size:1rem;
+	cursor:pointer;
+}
+.visually-hidden {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+}
+</style>
 </head>
-<body class="dark">
+<body class="dark talk">
 	<Header title={SITE_MAIN_TITLE} />
 	<main>
+		<header class="article-header">
+			<div class="container">
+				<h1>Let's Talk</h1>
+			</div>
+		</header>
+
 		<div class="container">
-			<h1>Contact Us Form!</h1>
-			<p>Send your message to me r . zahedi @ gmail . com and I will get back to you as soon as possible.</p>
-			<p>You can find me on <a href="https://twitter.com/rezawm" target="_blank">Twitter</a>, <a href="https://github.com/rezahedi" target="_blank">GitHub</a> or <a href="https://linkedin.com/in/rezahedi" target="_blank">LinkedIn</a></p>
+			<div>
+				<p>As a web developer based in beautiful Oakland, California, I'm open to any offer as full/part time, or project-based services to fit your needs.</p>
+				<p>I specialize in creating modern, user-friendly websites using the latest technologies. Let's collaborate to bring your web development project to life.</p>
+
+				<p>You can contact me through the contact form or by email at r.zahedi@gmail.com. Alternatively, you can also connect with me on <a href="https://linkedin.com/in/rezahedi" target="_blank">LinkedIn</a>.</p>
+			</div>
+
+			<form method="POST">
+
+				{successMessage && <p class="success">Your message has been sent successfully, I will get back to you as soon as possible.</p>}
+				{errors.server.length > 0 && <p class="error">{errors.server}</p>}
+
+				<input type="text" name="lastname" value="" class="visually-hidden" tabindex="-1" autocomplete="off" />
+				<div>
+					<input type="text" name="name" class=`${errors.name.length > 0 && 'error'}` required minlength="2" maxlength="50" placeholder="Name *" />
+					{errors.name.length > 0 && <p class="error">{errors.name}</p>}
+				</div>
+				<div>
+					<input type="email" name="email" class=`${errors.email.length > 0 && 'error'}` required placeholder="Email *" />
+					{errors.email.length > 0 && <p class="error">{errors.email}</p>}
+				</div>
+				<div>
+					<textarea name="message" class=`${errors.message.length > 0 && 'error'}` rows="5" required minlength="10" maxlength="5000" placeholder="Message *"></textarea>
+					{errors.message.length > 0 && <p class="error">{errors.message}</p>}
+				</div>
+				<div>
+					<button type="submit">Send</button>
+				</div>
+			</form>
 		</div>
 	</main>
 	<Footer />
