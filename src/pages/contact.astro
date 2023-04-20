@@ -39,9 +39,10 @@ if (Astro.request.method === 'POST') {
 			// TODO: Send email through the SendGrid API
 
 			const msg = {
-				to: 'r.zahedi@gmail.com', // Change to your recipient
-				from: `"${name}" <${email}>`, // Change to your verified sender
-				subject: `The rezahedi.dev Contact Form submittion from ${name}`,
+				to: {email:'r.zahedi@gmail.com',name:'Reza Zahedi'}, // Change to your recipient
+				from: {email:'r.zahedi@gmail.com',name:'Reza Zahedi'}, // Change to your verified sender
+				replyTo: {email:email, name:name},
+				subject: `[rezahedi.dev] ${name}`,
 				// text: '',
 				// new line to break the line in the email
 				html: nl2br(message),
