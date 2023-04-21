@@ -9,6 +9,61 @@ import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
 <html lang="en">
 <head>
 	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<style>
+.intro h1{
+	animation-name: a1;
+	animation-duration: .6s;
+	animation-timing-function: ease-out;
+}
+@keyframes a1 {
+	0% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	10% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+.intro p{
+	animation-name:a2;
+	animation-duration: .8s;
+	animation-timing-function: ease-out;
+}
+@keyframes a2 {
+	0% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	30% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+.intro figure{
+	animation-name: a3;
+	animation-duration: .5s;
+	animation-timing-function: ease-out;
+}
+@keyframes a3 {
+	from {
+		opacity: 0;
+		transform: scale(0.9)
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+</style>
 </head>
 <body class="dark">
 	<Header title={SITE_MAIN_TITLE} />
@@ -17,7 +72,7 @@ import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
 			<div class="intro">
 				<div>
 					<h1>Crafting Digital Experiences!</h1>
-					<p>I'm a skilled web developer with over 8 years of experience in PHP, MySQL, Javascript, NodeJS, Express, REST-APIs, HTML, and CSS. I also have a keen eye for design and am proficient with Figma, Adobe XD, and Photoshop. I have extensive experience in WordPress development, including building custom themes and plugins. Let's collaborate on your next project!</p>
+					<p>I'm a skilled web developer in both back-end and front-end with over 8 years of experience in PHP, MySQL, Javascript, NodeJS, Express, REST-APIs, HTML, and CSS. I also have a keen eye for design and am proficient with Figma, and Photoshop. I have extensive experience in WordPress development, including building custom themes and plugins. Let's collaborate on your next project!</p>
 				</div>
 				<figure>
 					<img src="assets/reza.jpg" alt="Reza Zahedi in NYC">

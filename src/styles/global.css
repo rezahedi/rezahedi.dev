@@ -46,6 +46,7 @@ body {
 	font-size:18px;
 	font-family: Sans, Verdana, sans-serif;
 	margin:0;padding:0;
+	overflow-y: scroll;
 	text-align: left;
 	background-color: var(--bg);
 	word-wrap: break-word;
