@@ -100,7 +100,7 @@ export default defineConfig({
 });
 ```
 
-Now we can receive data from our contact form on server-side, validate, handling errors and do the SendGrid API call on server.
+Now we can receive data from our contact form on server-side, validate, handling errors and do the SendGrid API call on server. You can read more about [Server-Side Rendering (SSR) on Vercel documentation](https://vercel.com/docs/frameworks/astro).
 
 ```JS
 ---
