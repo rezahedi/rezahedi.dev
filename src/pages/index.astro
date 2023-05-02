@@ -3,6 +3,14 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
+
+const blogPosts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+
+const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
 ---
 
 <!DOCTYPE html>
@@ -63,6 +71,39 @@ import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
 		transform: scale(1);
 	}
 }
+
+.posts{
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+}
+.posts>div{
+	flex: 1;
+}
+.posts h2{
+	margin-top: 0;
+}
+.posts h3{
+	margin-bottom: 0;
+}
+.posts time{
+	font-size: .8em;
+}
+.posts hr{
+	display:none
+}
+@media (max-width: 768px) {
+	.posts{
+		flex-direction: column;
+		gap:0;
+	}
+	.posts>div{
+		flex: none;
+	}
+	.posts hr{
+		display:block
+	}
+}
 </style>
 </head>
 <body class="dark">
@@ -78,6 +119,42 @@ import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
 					<img src="assets/reza.jpg" alt="Reza Zahedi in NYC">
 					<figcaption>Photo by Gary Gelb - NYC, Nov 2011</figcaption>
 				</figure>
+			</div>
+
+			<hr class="dotted" />
+
+			<div class="posts">
+				<div class="blog-posts">
+					<h2>Blog Posts</h2>
+					{blogPosts.map((post) => (
+						<article>
+							<h3><a href={post.url}>{post.frontmatter.title}</a></h3>
+							<time datetime={post.frontmatter.pubDate}>
+								{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})}
+							</time>
+						</article>
+					))}
+				</div>
+				<div class="projects">
+					<hr class="dotted" />
+					<h2>Projects</h2>
+					{projects.map((post) => (
+						<article>
+							<h3><a href={post.url}>{post.frontmatter.title}</a></h3>
+							<time datetime={post.frontmatter.pubDate}>
+								{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								})}
+							</time>
+						</article>
+					))}
+				</div>
 			</div>
 		</div>
 	</main>
