@@ -63,6 +63,24 @@ a {
 a:hover{
 	color: inherit;
 }
+hr.dotted{
+	margin:40px 0;
+	border:none;
+	--colors-lowContrast: black;
+	--color: hsl(0 0% 43.9%);
+	--offset: 0;
+	--height: 1px;
+	--width: 5px;
+	--fade-stop: 60%;
+	width: calc(100% + var(--offset));
+	left: calc(var(--offset) / 2 * -1);
+	height: var(--height);
+	background: linear-gradient(to right,var(--color),var(--color) 50%,transparent 0,transparent);
+	background-size: var(--width) var(--height);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	-webkit-mask: linear-gradient(to left,var(--colors-lowContrast) var(--fade-stop),transparent),linear-gradient(to right,var(--colors-lowContrast) var(--fade-stop),transparent),linear-gradient(#000,#000);
+}
 textarea {
 	width: 100%;
 	font-size: 16px;
