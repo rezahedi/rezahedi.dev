@@ -4,11 +4,12 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 import vercel from "@astrojs/vercel/serverless";
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), preact()],
   output: 'server',
   adapter: vercel()
 });
