@@ -141,6 +141,23 @@ nav a:after{background-color: var(--red);}
 .dark #darkIcon, .light #lightIcon{width:0;height:0;padding:0;opacity:0}
 .theme-mode svg{fill:var(--text)}
 
+/* Animated gradient background */
+.animated-bg{
+	position:absolute;
+	top:0;left:0;
+	width:100%; height:438px;
+	clip-path:polygon(0 0,100% 0,100% 80%,0 100%);
+	z-index:-1;
+}
+.animated-bg canvas {
+	width:100%; height:100%;
+}
+.home>header, .home .theme-mode svg, .intro h1, .intro p{
+	mix-blend-mode:difference;
+	color:#fff;
+	fill:#fff;
+}
+
 
 main{margin:0;flex:1 1 auto}
 

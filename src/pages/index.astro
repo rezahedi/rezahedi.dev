@@ -109,7 +109,8 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 }
 </style>
 </head>
-<body class="dark">
+<body class="dark home">
+	<div class="animated-bg"><canvas id="canv" width="32" height="32"></canvas></div>
 	<Header title={SITE_MAIN_TITLE} />
 	<main class="home">
 		<div class="container">
@@ -164,3 +165,40 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 	<Footer />
 </body>
 </html>
+<script>
+// Stripe Website Gradient Animation:
+// https://codepen.io/smitpatelx/pen/GRZayyO
+
+var c = document.getElementById('canv');
+var $ = c.getContext('2d');
+
+var col = function(x, y, r, g, b) {
+	$.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+	$.fillRect(x, y, 10,10);
+}
+var R = function(x, y, t) {
+	return( Math.floor(192 + 64*Math.cos( (x*x-y*y)/300 + t )) );
+}
+
+var G = function(x, y, t) {
+	return( Math.floor(192 + 64*Math.sin( (x*x*Math.cos(t/4)+y*y*Math.sin(t/3))/300 ) ) );
+}
+
+var B = function(x, y, t) {
+	return( Math.floor(192 + 64*Math.sin( 5*Math.sin(t/9) + ((x-100)*(x-100)+(y-100)*(y-100))/1100) ));
+}
+
+var t = 0;
+
+var run = function() {
+	for(let x=0;x<=35;x++) {
+		for(let y=0;y<=35;y++) {
+			col(x, y, R(x,y,t), G(x,y,t), B(x,y,t));
+		}
+	}
+	// Change 0.04 to greater value to speedup the gradient animation.
+	t += 0.04;
+	window.requestAnimationFrame(run);
+}
+run();
+</script>
