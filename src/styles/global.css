@@ -152,11 +152,18 @@ nav a:after{background-color: var(--red);}
 .animated-bg canvas {
 	width:100%; height:100%;
 }
-.home>header h2, .home nav ul, .home svg, .intro h1, .intro p{
+
+.home>header h2, .home nav ul, .home svg{
+	color:#000;
+	fill:#000;
+	stroke:#000 !important;
+}
+.home>header h2 a:after{
+	background-color:#000;
+}
+.intro h1, .intro p{
 	mix-blend-mode:difference;
 	color:#fff;
-	fill:#fff;
-	stroke:#fff !important;
 }
 
 
