@@ -84,6 +84,10 @@ NEXTAUTH_URL=http://localhost:3000
 
 It's a good practice to keep all your third-party secret and public keys and credentials in `.env` file too.
 
+## The mistake that I did
+
+First time I did not set my `secret` value in my `authOptions` object, everything was looking good and my app working but every time I tried to login with Google or Github providers, after giving access to providers, providers site redirected me back to my app, but my `session` object was null, because NextAuth need the `secret` value to create and encrypt a secret session, so NextAuth return null as my session every time.
+
 ## How to get Google or Github Credentials
 
 For Google, Go to your GCP console, Create a new project or use one of your existing project, then go to [APIs and Services > Credentials](https://console.cloud.google.com/apis/credentials), hit Create Credentials and select OAuth client ID.
@@ -126,42 +130,53 @@ export default async function Home() {
 
 ## Use authentication session in your client side pages or components
 
+To retrieving `session` data in a client side components or pages you need to add [NextAuth’s `SessionProvider`](https://next-auth.js.org/getting-started/client#sessionprovider) to your layout, then you can access `session` data by using `useSession()` hook in all your client pages. I did another mistake here and used `SessionProvider` directly in my root layout, and faced **Error: React Context is unavailable in Server Components** as `layout.tsx` is rendering in server but `SessionProvider` is a client side, to fix this we can create a client component `provider.tsx` with `use client` directive:
+
 ```TS
+// provider.tsx
 "use client";
-import { signIn, signOut } from "next-auth/react";
-import { Session } from "next-auth";
-import Image from 'next/image';
+import {SessionProvider} from "next-auth/react";
 
-export default function UserProfile({ session }: { session: Session | null }) {
+export function Providers({children}: {children: React.ReactNode}) {
+  return <SessionProvider>{children}</SessionProvider>;
+}
+```
 
-  if (!session) {
-    return (
-      <div>
-        <h2>Sign In</h2>
-        <button onClick={() => signIn('google')}>Sign In with Google</button>
-        <button onClick={() => signIn('github')}>Sign In with Github</button>
-      </div>
-    );
-  }
+Then import it to our `layout.tsx` and wrap our `children` with our `Providers` component:
 
+```TS
+// layout.tsx
+import {Providers} from "./providers";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <button onClick={() => signOut()}>
-      <Image
-        src={
-          session?.user?.image ||
-          `https://avatars.dicebear.com/api/micah/${session?.user?.name}.svg`
-        }
-        alt="User Profile Image"
-        width={24} height={24}
-      />
-      {session?.user?.name}
-    </button>
+    <html lang="en">
+      <body>
+          <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }
 ```
 
-## The mistake that I did
+Now we can access `session` in all our client components or pages:
 
-First time I did not set my `secret` value in my `authOptions` object, everything was looking good and my app working but every time I tried to login with Google or Github providers, after giving access to providers, providers site redirected me back to my app, but my `session` object was null, because NextAuth need the `secret` value to create and encrypt a secret session, so NextAuth return null as my session every time.
+```TS
+// page.tsx
+"use client";
+import {useSession} from "next-auth/react";
+
+export default function Home() {
+  const {data: session, status} = useSession();
+  console.log("status", status);
+  console.log("session", session);
+
+  return <div>Client Page</div>;
+}
+```
 
 Full Source Code on Github: https://github.com/rezahedi/nextjs-nextauth-starter
