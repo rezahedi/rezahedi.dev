@@ -16,7 +16,7 @@ if (Astro.request.method === 'POST') {
 		// Getting posted data from the form
 		const postedData = await Astro.request.formData();
 
-		const honeyPot = postedData.get('lastname');
+		const honeyPot = postedData.get('lastname')?.toString() ?? '';
 		if( honeyPot.length > 0 ){
 			console.log('Honey Pot filled, form submission is a spam.');
 			successMessage = true;
@@ -41,7 +41,7 @@ if (Astro.request.method === 'POST') {
 			const msg = {
 				to: {email:'r.zahedi@gmail.com',name:'Reza Zahedi'}, // Change to your recipient
 				from: {email:'r.zahedi@gmail.com',name:'Reza Zahedi'}, // Change to your verified sender
-				replyTo: {email:email, name:name},
+				reply_to: {email:email, name:name},
 				subject: `[rezahedi.dev] ${name}`,
 				// text: '',
 				// new line to break the line in the email
@@ -53,7 +53,7 @@ if (Astro.request.method === 'POST') {
 				throw error;
 			});
 
-			successMessage = true;
+			// successMessage = true;
 		}
 
 	} catch (error) {
