@@ -5,9 +5,9 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
 
 import { sanitizeHTML, isEmail, nl2br } from '../utils';
-import sendGrid from '@sendgrid/mail';
+import { Resend } from 'resend';
 
-sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
+const resend = new Resend( import.meta.env.RESEND_API_KEY );
 
 const errors = { name : '', email : '', message : '', server: '' };
 let successMessage = false;
@@ -36,24 +36,24 @@ if (Astro.request.method === 'POST') {
 			errors.message = 'Message must be between 10 and 5000 characters';
 		
 		if( errors.name.length === 0 && errors.email.length === 0 && errors.message.length === 0){
-			// TODO: Send email through the SendGrid API
 
+			// Source: https://resend.com/docs/api-reference/emails/send-email
 			const msg = {
-				to: {email:'r.zahedi@gmail.com',name:'Reza Zahedi'}, // Change to your recipient
-				from: {email:'r.zahedi@gmail.com',name:'Reza Zahedi'}, // Change to your verified sender
-				reply_to: {email:email, name:name},
+				to: 'Reza Zahedi <r.zahedi@gmail.com>',
+				from: `no-reply@rezahedi.dev`,
+				reply_to: `${name} <${email}>`,
 				subject: `[rezahedi.dev] ${name}`,
-				// text: '',
-				// new line to break the line in the email
 				html: nl2br(message),
 			}
-			await sendGrid.send(msg).then(() => {
-				successMessage = true;
-			}).catch((error) => {
-				throw error;
-			});
+			const {data, error} = await resend.emails.send(msg);
 
-			// successMessage = true;
+			if( error ){
+				console.error(error);
+				errors.server = 'Something went wrong, Please try again or contact me directly.';
+			}else{
+				successMessage = true;
+				// data = { id: '1234567890' }
+			}
 		}
 
 	} catch (error) {
