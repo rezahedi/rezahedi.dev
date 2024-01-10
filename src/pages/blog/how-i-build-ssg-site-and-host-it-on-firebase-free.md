@@ -35,24 +35,24 @@ As SSGs compiling files into static HTML, CSS, and JavaScript, This reduces the 
 
 I choose [Hexo](https://hexo.io/) as it’s super fast and simple framework to build a blog platform that I need for my website.
 
-```
-$ npm install hexo-cli -g
-$ hexo init blog
-$ cd blog
-$ npm install
-$ hexo server
+```bash
+npm install hexo-cli -g
+hexo init blog
+cd blog
+npm install
+hexo server
 ```
 
 With above commands your website / blog are ready to open locally. To create a new page or blog post you just need run following command:
 
-```
-$ hexo new "Hello Hexo"
+```bash
+hexo new "Hello Hexo"
 ```
 
 After customizing all your needs and template and creating your website’s pages, last step is to generate a production version and push it to your hosting server.
 
-```
-$ hexo generate
+```bash
+hexo generate
 ```
 
 Now that you have all your statis site’s files generated, you need to host it somewhere on a server, There are free hostings like Github, Cloudflare, Netlify and Firebase.
@@ -63,11 +63,11 @@ You need to have account in Firebase, I believe you might already have a Gmail a
 
 Login to Firebase and create your project, then install the Firebase CLI, login, and initialize and link your project:
 
-```
-> npm i -g firebase-tools
-> firebase login
-> firebase init hosting
-> firebase deploy --only hosting
+```bash
+npm i -g firebase-tools
+firebase login
+firebase init hosting
+firebase deploy --only hosting
 ```
 
 That’s all I did to create and host my website, [visit-bamyan.com](https://visit-bamyan.com/), and all the [visit-bamyan.com codes are available on my Github](https://github.com/rezahedi/visit-bamyan.com) to review.

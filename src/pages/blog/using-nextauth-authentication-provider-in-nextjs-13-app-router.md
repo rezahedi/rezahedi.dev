@@ -43,7 +43,7 @@ To add NextAuth to your project create a file named `route.ts` in the `/app/api/
 
 In `/app/api/auth/[...nextauth]/route.ts` route put the below codes:
 
-```TS
+```ts
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -78,8 +78,8 @@ openssl rand -base64 32
 
 Now that we create our secret key and keep it in our `.env` file, NextAuth need another environmental variables named `NEXTAUTH_URL` to keep our project’s base URL:
 
-```bash
-NEXTAUTH_URL=http://localhost:3000
+```js
+NEXTAUTH_URL = "http://localhost:3000"
 ```
 
 It's a good practice to keep all your third-party secret and public keys and credentials in `.env` file too.
@@ -98,7 +98,7 @@ Then get your client and secret ID and save them in your `.env` file.
 
 ## Use authentication session in your server rendered pages
 
-```TS
+```ts
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
@@ -132,7 +132,7 @@ export default async function Home() {
 
 To retrieving `session` data in a client side components or pages you need to add [NextAuth’s `SessionProvider`](https://next-auth.js.org/getting-started/client#sessionprovider) to your layout, then you can access `session` data by using `useSession()` hook in all your client pages. I did another mistake here and used `SessionProvider` directly in my root layout, and faced **Error: React Context is unavailable in Server Components** as `layout.tsx` is rendering in server but `SessionProvider` is a client side, to fix this we can create a client component `provider.tsx` with `use client` directive:
 
-```TS
+```ts
 // provider.tsx
 "use client";
 import {SessionProvider} from "next-auth/react";
@@ -144,7 +144,7 @@ export function Providers({children}: {children: React.ReactNode}) {
 
 Then import it to our `layout.tsx` and wrap our `children` with our `Providers` component:
 
-```TS
+```ts
 // layout.tsx
 import {Providers} from "./providers";
 
@@ -165,7 +165,7 @@ export default function RootLayout({
 
 Now we can access `session` in all our client components or pages:
 
-```TS
+```ts
 // page.tsx
 "use client";
 import {useSession} from "next-auth/react";

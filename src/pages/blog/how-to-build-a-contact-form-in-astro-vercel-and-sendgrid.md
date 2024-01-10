@@ -12,16 +12,16 @@ Having contact form in your website make it easier for users to interact with yo
 
 To start building our contact form first we should have our Astro project to be ready:
 
-```
-> npm create astro@latest
-> npm run dev
+```bash
+npm create astro@latest
+npm run dev
 ```
 
 Now that your Astro project is ready and running locally, create your first page and add the form with necessary input fields. as Astro is a [file-based routing](https://docs.astro.build/en/core-concepts/routing/), by creating new file in src/pages/ you will have new endpoint in your site.
 
 New file: _src/pages/contact.astro_
 
-```Javascript
+```astro
 ---
 // Frontmatter section
 // Component scripts goes here.
@@ -66,29 +66,29 @@ You’ll be rqeuired to fill out a detailed form. Just complete the form and hit
 
 Once you’ve retrieved the `API keys`, add it to your `.env` file in your local environment:
 
-```
-SENDGRID_API_KEY= SG.YOUR_API_KEY_HERE
+```js
+SENDGRID_API_KEY = "SendGrid API key goes here"
 ```
 
 _Note: If you setup `.gitignore` in your project to ignore `.env` files, so do not forget to add your env variable `SENDGRID_API_KEY` under your project in Vercel, Settings > Environment Variables._
 
 Then we need to install SendGrid’s package:
 
-```
-> npm i --save @sendgrid/mail
+```bash
+npm i --save @sendgrid/mail
 ```
 
 ## Create the Vercel serverless function
 
 The SendGrid does not allow browser-based API calls, because of security reasons, also if you do, you will reveal your API key to the public. I did and received a CORS error from SendGrid API, So we should have a server-side function and do our SendGrid API call on server, We need to create a Nodejs function.
 
-```
-> npx astro add vercel
+```bash
+npx astro add vercel
 ```
 
 This command will install `@astrojs/vercel astro@latest` and change your project’s configuration in `/astro.config.mjs` file by importing vercel serverless, adding `output: ‘server’` amd `vercel()` as adapter.
 
-```JS
+```js
 import { defineConfig } from 'astro/config';
 
 import vercel from "@astrojs/vercel/serverless";
@@ -102,7 +102,7 @@ export default defineConfig({
 
 Now we can receive data from our contact form on server-side, validate, handling errors and do the SendGrid API call on server. You can read more about [Server-Side Rendering (SSR) on Vercel documentation](https://vercel.com/docs/frameworks/astro).
 
-```JS
+```astro
 ---
 import sendGrid from '@sendgrid/mail';
 sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
