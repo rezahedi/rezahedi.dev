@@ -12,12 +12,12 @@
 	--article-width:800px;
 }
 :root body.dark{
-	--text: #ffffffcc;
-	--bg: #100818;
+	--text: 238, 238, 238;
+	--bg: 16, 8, 24;
 }
 :root body.light{
-	--text: #000;
-	--bg: #eee;
+	--text: 16, 8, 24;
+	--bg: 238, 238, 238;
 }
 
 /* https://fonts.google.com/specimen/Open+Sans */
@@ -48,11 +48,11 @@ body {
 	margin:0;padding:0;
 	overflow-y: scroll;
 	text-align: left;
-	background-color: var(--bg);
+	background-color: rgb(var(--bg));
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
-	color: var(--text);
+	color: rgb(var(--text));
 	display:flex;
 	flex-direction:column;
 }
@@ -100,7 +100,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: var(--bg);
+	background-color: rgb(var(--bg));
 }
 pre {
 	padding: 1rem;
@@ -133,13 +133,13 @@ body>header>div{display:flex;align-items:center}
 nav{flex-grow:1}
 nav ul{display:flex;justify-content:center; gap:30px}
 #menubtn{display:none}
-nav a{display:inline-block;padding:10px 20px;color:inherit;text-decoration:none}
+nav a{display:inline-block;padding:10px 20px;color:inherit;text-decoration:none;text-wrap:nowrap}
 nav a:hover{color:var(--red)}
 nav a:after{background-color: var(--red);}
-.theme-mode button{background:none;border:0px;margin:0;padding:10px;width:44px;height:44px;cursor:pointer;transition:.2s;overflow:hidden}
-.theme-mode button:hover{transform:scale(.8)}
+button.theme-mode{background:none;border:0px;margin:0;padding:10px;width:44px;height:44px;cursor:pointer;transition:.2s;overflow:hidden}
+button.theme-mode:hover{transform:scale(.8)}
 .dark #darkIcon, .light #lightIcon{width:0;height:0;padding:0;opacity:0}
-.theme-mode svg{fill:var(--text)}
+button.theme-mode svg{fill:rgb(var(--text))}
 
 /* Animated gradient background */
 .animated-bg{
@@ -155,7 +155,7 @@ nav a:after{background-color: var(--red);}
 
 .home>header h2, .home nav ul, .home svg{
 	color:#000;
-	fill:#000;
+	fill:#000 !important;
 	stroke:#000 !important;
 }
 .home>header h2 a:after{
@@ -229,7 +229,7 @@ a:after{
 	left:0;
 	width:100%;
 	height:1px;
-	background-color:var(--text);
+	background-color:rgb(var(--text));
 	transition:transform .2s ease-out;
 	transform: scaleX(0);
 	transform-origin:right;
@@ -245,7 +245,11 @@ footer{
 	text-align:center;
 	padding:60px 0 10px 0;
 }
-footer>div{display:flex;justify-content:space-between}
+footer>div{
+	border-top:rgba(var(--text), .2) solid 1px;
+	padding:10px 0;
+	display:flex;justify-content:space-between
+}
 footer p{font-size:.85rem;margin:0}
 
 @media screen and (max-width:1600px) {
@@ -262,15 +266,17 @@ footer p{font-size:.85rem;margin:0}
 }
 
 @media screen and (max-width: 768px) {
+	body>header h2 a{display:block;overflow:hidden;height:22px}
 	nav ul{gap:0}
 	.intro{gap:20px; flex-direction:column-reverse}
 	.intro h1{margin:20px 0}
 	footer>div{display:flex;flex-direction:column;}
+	nav a{padding:10px 15px}
 }
 
 @media screen and (max-width: 425px) {
 	html{font-size:90%}
-	nav ul{flex-direction:column;width:100%;position:absolute;left:0;top:85px;height:0;overflow:hidden;background-color:var(--bg);z-index:1; box-sizing: border-box;justify-content:center;opacity:0;transition:.3s ease-out}
+	nav ul{flex-direction:column;width:100%;position:absolute;left:0;top:85px;height:0;overflow:hidden;background-color:rgb(var(--bg));z-index:1; box-sizing: border-box;justify-content:center;opacity:0;transition:.3s ease-out}
 	.home nav ul{
 		mix-blend-mode:normal;
 		color:var(--color);

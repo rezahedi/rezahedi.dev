@@ -86,10 +86,8 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 .posts h2{
 	margin-top: 0;
 }
-.posts h3{
-	margin-bottom: 0;
-}
 .posts time{
+	color:rgba(var(--text), .8);
 	font-size: .8em;
 }
 .posts hr{
@@ -107,6 +105,28 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 		display:block
 	}
 }
+.blocks{
+	display: grid;
+	gap: 20px;
+}
+.blocks a{
+	display: block;
+	box-sizing: border-box;
+	min-height: 140px;
+	padding:20px;
+	border-radius: 20px;
+	background:rgba(var(--text), .025);
+	transition: all .2s ease-in-out;
+	border:1px solid transparent;
+}
+.blocks a:after{
+	display:none;
+}
+.blocks a:hover{
+	background:rgba(var(--text), .045);
+	border:1px solid rgba(var(--text), 0.1)
+}
+.blocks article h3{margin:0}
 </style>
 </head>
 <body class="dark home">
@@ -128,36 +148,44 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 			<hr class="dotted" />
 
 			<div class="posts">
-				<div class="blog-posts">
+				<div>
 					<h2>Blog Posts</h2>
-					{blogPosts.map((post) => (
-						<article>
-							<h3><a href={post.url}>{post.frontmatter.title}</a></h3>
-							<time datetime={post.frontmatter.pubDate}>
-								{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
-							</time>
-						</article>
-					))}
+					<div class="blocks">
+						{blogPosts.map((post) => (
+							<a href={post.url}>
+								<article>
+									<h3>{post.frontmatter.title}</h3>
+									<time datetime={post.frontmatter.pubDate}>
+										{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</time>
+								</article>
+							</a>
+						))}
+					</div>
 				</div>
-				<div class="projects">
+				<div>
 					<hr class="dotted" />
 					<h2>Projects</h2>
-					{projects.map((post) => (
-						<article>
-							<h3><a href={post.url}>{post.frontmatter.title}</a></h3>
-							<time datetime={post.frontmatter.pubDate}>
-								{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
-							</time>
-						</article>
-					))}
+					<div class="blocks">
+						{projects.map((post) => (
+							<a href={post.url}>
+								<article>
+									<h3>{post.frontmatter.title}</h3>
+									<time datetime={post.frontmatter.pubDate}>
+										{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</time>
+								</article>
+							</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>
