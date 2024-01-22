@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import sectionize from '@hbsnow/rehype-sectionize';
 
 // https://astro.build/config
-import vercel from "@astrojs/vercel/serverless";
+import vercelServerless from "@astrojs/vercel/serverless";
 import preact from "@astrojs/preact";
 
 // https://astro.build/config
@@ -15,5 +15,5 @@ export default defineConfig({
     rehypePlugins: [sectionize],
   },
   output: 'server',
-  adapter: vercel()
+  adapter: vercelServerless()
 });
