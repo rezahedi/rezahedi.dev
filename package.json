@@ -19,5 +19,8 @@
     "astro": "^4.2.1",
     "preact": "^10.19.3",
     "resend": "^2.1.0"
+  },
+  "devDependencies": {
+    "@hbsnow/rehype-sectionize": "^1.0.7"
   }
 }

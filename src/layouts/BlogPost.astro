@@ -73,11 +73,10 @@ const {
 addIntersectionObserver();
 
 function addIntersectionObserver() {
-	console.log('addIntersectionObserver');
 	const observer = new IntersectionObserver((sections) => {
 		console.log('sections', sections);
 		sections.forEach((section) => {
-			const heading = section.target;
+			const heading = section.target.querySelector('h2, h3, h4, h5');
 			if (!heading) return;
 			const id = heading.getAttribute('id');
 
@@ -92,8 +91,8 @@ function addIntersectionObserver() {
 		});
 	});
 
-	document.querySelectorAll('.article-content h2, .article-content h3, .article-content h4, .article-content h5').forEach((heading) => {
-		observer.observe(heading);
+	document.querySelectorAll('.article-content section').forEach((section) => {
+		observer.observe(section);
 	})
 }
 </script>
