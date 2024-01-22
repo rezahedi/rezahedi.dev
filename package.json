@@ -15,9 +15,9 @@
     "@astrojs/preact": "^2.1.0",
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/vercel": "^3.2.4",
-    "astro": "^2.3.0",
-    "preact": "^10.13.2",
+    "@astrojs/vercel": "^7.0.0",
+    "astro": "^4.2.1",
+    "preact": "^10.19.3",
     "resend": "^2.1.0"
   }
 }
