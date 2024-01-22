@@ -1,8 +1,8 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import TableOfContents from '../components/TableOfContents.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import TOC from '@components/TOC.astro';
 
 export interface Props {
 	content: {
@@ -12,7 +12,12 @@ export interface Props {
 		updatedDate?: string;
 		heroImage?: string;
 		category?: string;
-	};
+	},
+	headings: {
+		slug: string;
+		text: string;
+		depth: number;
+	}[]
 }
 
 const {
@@ -49,7 +54,7 @@ const {
 				{headings && headings.length > 0 && (
 					<nav class="article-toc">
 						<h3>Table of Content</h3>
-						<TableOfContents headings={headings} />
+						<TOC headings={headings} />
 					</nav>
 				)}
 				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}

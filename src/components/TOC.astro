@@ -1,12 +1,11 @@
 ---
-import TableOfContentsHeading from '../components/TableOfContentsHeading.astro';
+import TOCHeading from '@components/TOCHeading.astro';
 
-// TableOfContents.astro
 const { headings } = Astro.props;
 
-const toc = buildToc(headings);
+const toc = buildHierarchy(headings);
 
-function buildToc(headings: any) {
+function buildHierarchy(headings: any) {
   const toc: any[] = [];
   const parentHeadings = new Map();
   
@@ -30,7 +29,7 @@ function buildToc(headings: any) {
   <nav class="toc">
     <ul>
       {toc.map((heading) => (
-        <TableOfContentsHeading heading={heading} />
+        <TOCHeading heading={heading} />
       ))}
     </ul>
   </nav>
