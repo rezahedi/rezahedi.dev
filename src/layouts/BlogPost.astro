@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 
 export interface Props {
 	content: {
@@ -15,7 +16,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, category },
+	content: { title, description, pubDate, updatedDate, heroImage, category }, headings
 } = Astro.props;
 ---
 
@@ -45,6 +46,12 @@ const {
 
 		<div class="container">
 			<article>
+				{headings && headings.length > 0 && (
+					<nav class="article-toc">
+						<h3>Table of Content</h3>
+						<TableOfContents headings={headings} />
+					</nav>
+				)}
 				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				{
 					updatedDate && (
@@ -62,3 +69,31 @@ const {
 	<Footer />
 </body>
 </html>
+<script>
+addIntersectionObserver();
+
+function addIntersectionObserver() {
+	console.log('addIntersectionObserver');
+	const observer = new IntersectionObserver((sections) => {
+		console.log('sections', sections);
+		sections.forEach((section) => {
+			const heading = section.target;
+			if (!heading) return;
+			const id = heading.getAttribute('id');
+
+			// Get the link to this section's heading
+			const link = document.querySelector(`nav.toc li a[href="#${id}"]`);
+			if (!link) return;
+
+			// Add/remove the .active class based on whether the
+			// section is visible
+			const addRemove = section.intersectionRatio > 0 ? 'add' : 'remove';
+			link.classList[addRemove]('active');
+		});
+	});
+
+	document.querySelectorAll('.article-content h2, .article-content h3, .article-content h4, .article-content h5').forEach((heading) => {
+		observer.observe(heading);
+	})
+}
+</script>
