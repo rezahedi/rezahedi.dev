@@ -4,6 +4,8 @@ title: "NutriScan - Nutrition Facts Scanner"
 description: "A web app using the Barcode Detection API for seamless barcode scanning, achieving 75% mobile support. Built with Next.js, Prisma ORM, and MongoDB, it fetches nutrition facts from third-party APIs and save data on database to reduce external API calls."
 pubDate: "Jan 4, 2024"
 image: "/projects/nutriscan-nutrition-facts-scanner-01.png"
+link: "https://nutrition-facts-scanner.vercel.app"
+github: "https://github.com/rezahedi/nutrition-facts-scanner"
 category: "Projects"
 tags: ["Next.js", "TypeScript", "MongoDB", "Prisma", "Barcode Detection API", "Tailwind CSS", "Vercel"]
 ---

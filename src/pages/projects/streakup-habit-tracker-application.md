@@ -4,6 +4,8 @@ title: "StreakUp - A Habit Tracking App"
 description: "StreakUp is a habit tracker app built with Next.js, Prisma ORM, and Radix UI. It offers customizable repeat patterns, goal tracking, an inline edit feature, and gives users control over their data."
 pubDate: "Jan 31, 2024"
 image: "/projects/quick-guide-next-auth-email-login-setup-use-resend-to-send-verification-email-03.png"
+link: "https://streakup.vercel.app"
+github: "https://github.com/rezahedi/streakup"
 category: "Projects"
 tags: ["Next.js", "TypeScript", "Next-Auth", "Postgres", "Prisma", "Tailwind CSS", "Radix UI"]
 ---
