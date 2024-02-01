@@ -178,7 +178,7 @@ main{margin:0;flex:1 1 auto}
 
 .article-toc{
 	float:right;
-	max-width:300px;
+	width:300px;
 	position:sticky;top:40px;
 	font-size:medium;
 	line-height: normal;
