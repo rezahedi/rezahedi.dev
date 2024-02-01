@@ -13,21 +13,39 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	<style>
-	ul {
-		list-style-type: none;
-		padding: unset;
-	}
-	ul li {
-		display: flex;
-	}
-	ul li time {
-		flex: 0 0 130px;
-		font-style: italic;
-		color: #595959;
-	}
-	</style>
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<style>
+section{
+	max-width: var(--article-width);
+	display: grid;
+	gap: 20px;
+}
+article{
+	display: block;
+	box-sizing: border-box;
+	min-height: 140px;
+	padding:20px;
+	border-radius: 20px;
+	background:rgba(var(--text), .025);
+	transition: all .2s ease-in-out;
+	border:1px solid transparent;
+}
+article h2{
+	margin:0;
+	font-size: 1.5em;
+}
+article time{
+	font-size: 0.9em;
+	opacity: 0.7;
+}
+article:hover{
+	background:rgba(var(--text), .045);
+	border:1px solid rgba(var(--text), 0.1)
+}
+article a:after{
+	display:none;
+}
+</style>
 </head>
 <body class="dark blog">
 	<Header title={SITE_MAIN_TITLE} />
