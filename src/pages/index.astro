@@ -104,6 +104,9 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 	.posts hr{
 		display:block
 	}
+	.blocks p{
+		display:none
+	}
 }
 .blocks{
 	display: grid;
@@ -127,6 +130,30 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 	border:1px solid rgba(var(--text), 0.1)
 }
 .blocks article h3{margin:0}
+.blocks article p{
+	margin:10px 0 0;
+	color:rgba(var(--text), .8);
+	font-size:.85em;
+	line-height:1.3em;
+}
+.projects a{
+	padding:0;
+	overflow:hidden;
+}
+.projects img{
+	width:100%;
+	aspect-ratio: 7/4;
+	background:rgba(var(--text), .1);
+	object-fit: cover;
+	opacity: .8;
+	transition: all .1s ease-in-out;
+}
+.projects a:hover img{
+	opacity: 1;
+}
+.projects article{
+	padding:20px
+}
 </style>
 </head>
 <body class="dark home">
@@ -149,7 +176,7 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 
 			<div class="posts">
 				<div>
-					<h2>Blog Posts</h2>
+					<h2>Posts</h2>
 					<div class="blocks">
 						{blogPosts.map((post) => (
 							<a href={post.url}>
@@ -162,6 +189,7 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 											day: 'numeric',
 										})}
 									</time>
+									<p>{post.frontmatter.description}</p>
 								</article>
 							</a>
 						))}
@@ -170,9 +198,10 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 				<div>
 					<hr class="dotted" />
 					<h2>Projects</h2>
-					<div class="blocks">
+					<div class="blocks projects">
 						{projects.map((post) => (
 							<a href={post.url}>
+								<img src={post.frontmatter.image} alt={post.frontmatter.title} />
 								<article>
 									<h3>{post.frontmatter.title}</h3>
 									<time datetime={post.frontmatter.pubDate}>
