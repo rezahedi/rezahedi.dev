@@ -264,7 +264,7 @@ footer{
 }
 footer>div{
 	border-top:rgba(var(--text), .2) solid 1px;
-	padding:10px 0;
+	padding:10px 0 40px 0;
 	display:flex;justify-content:space-between
 }
 footer p{font-size:.85rem;margin:0}
