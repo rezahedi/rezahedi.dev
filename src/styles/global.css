@@ -154,7 +154,7 @@ button.theme-mode svg{fill:rgb(var(--text))}
 	width:100%; height:100%;
 }
 
-.home>header h2, .home .menu ul, .home svg{
+.home>header h2, .home .menu ul, .home header svg{
 	color:#000;
 	fill:#000 !important;
 	stroke:#000 !important;
