@@ -211,7 +211,7 @@ main{margin:0;flex:1 1 auto}
 }
 .article-title h2{font-size:1.5rem;margin:0;opacity:.8}
 .article-title h1{font-size:2.5rem;margin:0}
-.article-title time{font-size:.75rem;opacity:.8}
+.article-title time{font-size:.75rem;opacity:.7}
 
 .article-content{
 	max-width:var(--article-width);
