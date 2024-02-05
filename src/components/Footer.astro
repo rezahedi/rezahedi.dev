@@ -1,19 +1,24 @@
 ---
+import { Github, LinkedIn, Twitter } from "./icons";
+
 const today = new Date();
 ---
 
 <footer>
   <div class="container">
+    <div>
+      <a href="https://twitter.com/rezahedi_" target="_blank">
+        <Twitter />
+      </a>
+      <a href="https://github.com/rezahedi" target="_blank">
+        <Github />
+      </a>
+      <a href="https://linkedin.com/in/rezahedi" target="_blank">
+        <LinkedIn />
+      </a>
+    </div>
     <p>
-      Reza on <a href="https://twitter.com/rezahedi_" target="_blank">Twitter</a
-      >,
-      <a href="https://github.com/rezahedi" target="_blank">GitHub</a> and
-      <a href="https://linkedin.com/in/rezahedi" target="_blank">LinkedIn</a>
-    </p>
-    <p>
-      Made by <a href="https://astro.build">Astro</a>, hosted on <a
-        href="https://vercel.com">Vercel</a
-      >
+      Made by <a href="https://astro.build">Astro</a>
     </p>
   </div>
 </footer>

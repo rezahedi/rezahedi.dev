@@ -262,13 +262,22 @@ footer{
 	text-align:center;
 	padding:60px 0 10px 0;
 }
+footer a:after{
+	display:none;
+}
 footer>div{
 	border-top:rgba(var(--text), .2) solid 1px;
 	padding:10px 0 40px 0;
 	display:flex;justify-content:space-between
 }
 footer p{font-size:.85rem;margin:0}
-
+footer svg{
+	width:24px; height:24px;
+	fill:rgb(var(--text), .5);
+}
+footer svg:hover{
+	fill:rgb(var(--text));
+}
 @media screen and (max-width:1600px) {
 	html{font-size:120%}
 }
