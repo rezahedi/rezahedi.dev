@@ -38,14 +38,13 @@ Crafting habits is fun with StreakUp, I think so. Add titles, pick emojis, custo
 To give you more details about the repeat patterns, I've created a string pattern for that; take a look at the following examples:
 
 ```
-        1d = Daily
-        2d = Every other day
-        3d = Every 3 days
-    1d 8am = Daily at morning
+1d         = Daily
+2d         = Every other day
+3d 8am     = Every 3 days at morning
 2d 8am 8pm = Every other day at morning and night
-        1w = Weekly
-        2w = Every other week
-    3w mon = Every 3 weeks on Monday
+1w sat     = Weekly on Saturday
+2w         = Every other week
+3w mon     = Every 3 weeks on Monday
 1w mon fri = Weekly on Monday, and Friday
 ```
 
