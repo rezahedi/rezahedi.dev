@@ -167,7 +167,7 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 					<p>I'm a skilled web developer in both back-end and front-end with over 8 years of experience in PHP, MySQL, Javascript, NodeJS, Express, REST-APIs, HTML, and CSS. I also have a keen eye for design and am proficient with Figma, and Photoshop. I have extensive experience in WordPress development, including building custom themes and plugins. Let's collaborate on your next project!</p>
 				</div>
 				<figure>
-					<img src="assets/reza.jpg" alt="Reza Zahedi in NYC">
+					<img src="assets/reza.jpg" alt="Reza Zahedi in NYC" loading="lazy" />
 					<figcaption>Photo by Gary Gelb - NYC, Nov 2011</figcaption>
 				</figure>
 			</div>
@@ -201,7 +201,7 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 					<div class="blocks projects">
 						{projects.map((post) => (
 							<a href={post.url}>
-								<img src={post.frontmatter.image} alt={post.frontmatter.title} />
+								<img src={post.frontmatter.image} alt={post.frontmatter.title} loading="lazy" />
 								<article>
 									<h3>{post.frontmatter.title}</h3>
 									<time datetime={post.frontmatter.pubDate}>
