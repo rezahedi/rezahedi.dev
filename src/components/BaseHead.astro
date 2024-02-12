@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import rezaImage from '../assets/reza.jpg';
 
 export interface Props {
 	title: string;
@@ -9,7 +10,7 @@ export interface Props {
 	image?: string;
 }
 
-const { title, description, image = '/src/assets/reza.jpg' } = Astro.props;
+const { title, description, image = rezaImage.src } = Astro.props;
 ---
 
 <!-- Global Metadata -->
