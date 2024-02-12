@@ -3,6 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
+import { Image } from 'astro:assets';
+import rezaImage from './public/assets/reza.jpg';
 
 const blogPosts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
@@ -167,7 +169,7 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 					<p>I'm a skilled web developer in both back-end and front-end with over 8 years of experience in PHP, MySQL, Javascript, NodeJS, Express, REST-APIs, HTML, and CSS. I also have a keen eye for design and am proficient with Figma, and Photoshop. I have extensive experience in WordPress development, including building custom themes and plugins. Let's collaborate on your next project!</p>
 				</div>
 				<figure>
-					<img src="assets/reza.jpg" alt="Reza Zahedi in NYC" loading="lazy" />
+					<Image src={rezaImage} alt="Reza Zahedi in NYC" loading="lazy" width="560" height="540" />
 					<figcaption>Photo by Gary Gelb - NYC, Nov 2011</figcaption>
 				</figure>
 			</div>
@@ -201,7 +203,7 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 					<div class="blocks projects">
 						{projects.map((post) => (
 							<a href={post.url}>
-								<img src={post.frontmatter.image} alt={post.frontmatter.title} loading="lazy" />
+								<Image src={post.frontmatter.image} alt={post.frontmatter.title} loading="lazy" width="560" height="320" />
 								<article>
 									<h3>{post.frontmatter.title}</h3>
 									<time datetime={post.frontmatter.pubDate}>
