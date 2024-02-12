@@ -10,6 +10,7 @@ export interface Props {
 		description: string;
 		pubDate?: string;
 		updatedDate?: string;
+		image?: string;
 		link?: string;
 		github?: string;
 		category?: string;
@@ -22,13 +23,13 @@ export interface Props {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, link, github, category }, headings
+	content: { title, description, pubDate, updatedDate, image, link, github, category }, headings
 } = Astro.props;
 ---
 
 <html lang="en">
 <head>
-<BaseHead title={title} description={description} />
+<BaseHead title={title} description={description} image={image} />
 <style>
 .title {
 	font-size: 2em;
