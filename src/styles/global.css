@@ -118,8 +118,9 @@ blockquote {
 }
 figure{margin:0}
 figure>figcaption {
-	font-size:0.75rem;
-	opacity:0.5;
+	text-align: center;
+	font-size:0.7rem;
+	opacity:0.7;
 }
 ul{list-style:none;margin:0;padding:0}
 
@@ -216,8 +217,6 @@ main{margin:0;flex:1 1 auto}
 .article-content{
 	max-width:var(--article-width);
 }
-
-figure>figcaption{text-align:center;font-size:.9rem}
 
 pre.astro-code{
 	background-color:#273343;
