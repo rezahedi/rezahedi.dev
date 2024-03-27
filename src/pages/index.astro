@@ -164,41 +164,46 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 	<main>
 		<div class="container">
 			<div class="intro">
-				<div>
-					<h1>Crafting Digital Experiences!</h1>
-					<p>I'm a skilled web developer in both back-end and front-end with over 8 years of experience in PHP, MySQL, Javascript, NodeJS, Express, REST-APIs, HTML, and CSS. I also have a keen eye for design and am proficient with Figma, and Photoshop. I have extensive experience in WordPress development, including building custom themes and plugins. Let's collaborate on your next project!</p>
+				<div class="me">
+					<div>
+						<h1>Crafting Digital Experiences!</h1>
+						<p>I'm a skilled web developer in both back-end and front-end with over 8 years of experience in PHP, MySQL, Javascript, NodeJS, Express, REST-APIs, HTML, and CSS. I also have a keen eye for design and am proficient with Figma, and Photoshop. I have extensive experience in WordPress development, including building custom themes and plugins. Let's collaborate on your next project!</p>
+					</div>
+					<figure>
+						<Image src={rezaImage} alt="Reza Zahedi in NYC" loading="eager" width="560" height="540" />
+						<figcaption>Photo by Gary Gelb - NYC, Nov 2011</figcaption>
+					</figure>
 				</div>
-				<figure>
-					<Image src={rezaImage} alt="Reza Zahedi in NYC" loading="lazy" width="560" height="540" />
-					<figcaption>Photo by Gary Gelb - NYC, Nov 2011</figcaption>
-				</figure>
+				<div class="stacks">
+					<img src='/logos/php_light.svg' alt="PHP" loading='lazy' width="80" height="80" />
+					<img src='/logos/mysql_light.svg' alt="MySQL" loading='lazy' width="80" height="80" />
+					<img src='/logos/js_light.svg' alt="Javascript" loading='lazy' width="80" height="80" />
+					<img src='/logos/typescript_light.svg' alt="Typescript" loading='lazy' width="80" height="80" />
+					<img src='/logos/nodejs_light.svg' alt="Node.js" loading='lazy' width="80" height="80" />
+					<img src='/logos/reactjs_light.svg' alt="React" loading='lazy' width="80" height="80" />
+					<img src='/logos/nextjs_light.svg' alt="Next.js" loading='lazy' width="80" height="80" />
+					<img src='/logos/prisma_light.svg' alt="Prisma ORM" loading='lazy' width="80" height="80" />
+					<img src='/logos/pwa_light.svg' alt="PWA - Progressive Web App" loading='lazy' width="80" height="80" />
+					<img src='/logos/npm_light.svg' alt="NPM" loading='lazy' width="80" height="80" />
+					<img src='/logos/vs_light.svg' alt="VSCode IDE" loading='lazy' width="80" height="80" />
+					<img src='/logos/postman_light.svg' alt="Postman API Platform" loading='lazy' width="80" height="80" />
+					<img src='/logos/github_light.svg' alt="Github" loading='lazy' width="80" height="80" />
+					<img src='/logos/git_light.svg' alt="Git" loading='lazy' width="80" height="80" />
+					<img src='/logos/gcp_light.svg' alt="Google Cloud Platform" loading='lazy' width="80" height="80" />
+					<img src='/logos/firebase_light.svg' alt="Firebase" loading='lazy' width="80" height="80" />
+					<img src='/logos/figma_light.svg' alt="Figma" loading='lazy' width="80" height="80" />
+					<img src='/logos/ps_light.svg' alt="Adobe Photoshop" loading='lazy' width="80" height="80" />
+					<img src='/logos/wp_light.svg' alt="WordPress" loading='lazy' width="80" height="80" />
+					<img src='/logos/html5_light.svg' alt="HTML5" loading='lazy' width="80" height="80" />
+					<img src='/logos/css3_light.svg' alt="CSS3" loading='lazy' width="80" height="80" />
+					<img src='/logos/tailwind_light.svg' alt="Tailwind CSS" loading='lazy' width="80" height="80" />
+				</div>
 			</div>
 
 			<hr class="dotted" />
 
 			<div class="posts">
 				<div>
-					<h2>Posts</h2>
-					<div class="blocks">
-						{blogPosts.map((post) => (
-							<a href={post.url}>
-								<article>
-									<h3>{post.frontmatter.title}</h3>
-									<time datetime={post.frontmatter.pubDate}>
-										{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-									</time>
-									<p>{post.frontmatter.description}</p>
-								</article>
-							</a>
-						))}
-					</div>
-				</div>
-				<div>
-					<hr class="dotted" />
 					<h2>Projects</h2>
 					<div class="blocks projects">
 						{projects.map((post) => (
@@ -213,6 +218,27 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 											day: 'numeric',
 										})}
 									</time>
+								</article>
+							</a>
+						))}
+					</div>
+				</div>
+				<div>
+					<hr class="dotted" />
+					<h2>Posts</h2>
+					<div class="blocks">
+						{blogPosts.map((post) => (
+							<a href={post.url}>
+								<article>
+									<h3>{post.frontmatter.title}</h3>
+									<time datetime={post.frontmatter.pubDate}>
+										{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</time>
+									<p>{post.frontmatter.description}</p>
 								</article>
 							</a>
 						))}
