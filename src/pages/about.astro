@@ -1,0 +1,138 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
+
+import { Image } from 'astro:assets';
+import rezaImage from '../assets/social-avatar.jpg';
+import { Github, LinkedIn, Twitter } from "../components/icons";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<BaseHead title={'Meet Reza - ' + SITE_TITLE} description={SITE_DESCRIPTION} />
+<style>
+main .container{
+	display:flex;
+	gap:100px;
+}
+@media screen and (max-width: 1024px) {
+	main .container{
+		flex-direction:column;
+		gap:40px;
+	}
+}
+main .container > *{
+	flex-basis: 100%;
+	flex-grow:1;
+}
+.links{
+	display: flex;
+	gap: 10px;
+	margin-top:15px; padding-top:15px;
+	border-top: 1px solid rgba(var(--text), .1);
+	justify-content:left;
+}
+.links a{
+	display: flex;
+	gap:5px;
+	flex-direction: column;
+	align-items: center;
+	padding:10px;
+	font-size: 0.9em;
+	text-decoration: none;
+	transition: all .2s ease-in-out;
+	opacity: 0.7;
+	border-radius: 10px;
+	color:rgb(var(--text))
+}
+.links a:hover{
+	background-color: rgba(var(--text), .08);
+	
+	opacity: 1;
+}
+.links svg{
+	width: 20px;
+	height: 20px;
+	fill:rgb(var(--text));
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.reza{
+  float:right;
+  border-radius:40px;
+  border-bottom-left-radius:0;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  width:300px;
+  margin:20px 40px;
+}
+@media screen and (max-width: 1024px) {
+  .reza{
+    width: 100%;
+    max-width: 500px;
+    float:none;
+    display: block;
+    margin:20px auto;
+  }
+}
+</style>
+</head>
+<body class="dark about">
+	<Header title={SITE_MAIN_TITLE} />
+	<main>
+		<header class="article-header">
+			<div class="container">
+				<div class="page-title">
+					<h1>Meet Reza</h1>
+					<h2>Unveiling the Story Behind the Code</h2>
+				</div>
+			</div>
+		</header>
+
+		<div class="container">
+      <article>
+        <nav class="article-toc">
+          <h3>My Profiles</h3>
+          <div class="links">
+            <a href="https://github.com/rezahedi" target="_blank">
+              <Github />
+              Github
+            </a>
+            <a href="https://linkedin.com/in/rezahedi" target="_blank">
+              <LinkedIn />
+              LinkedIn
+            </a>
+            <a href="https://x.com/rezahedi_" target="_blank">
+              <Twitter />
+              Twitter
+            </a>
+          </div>
+        </nav>
+        <div class="article-content">
+
+          <p>My story start when I was in high school, we didn't even have a televition at home. One day, my older brother arrived with a peculiar-shaped object, a big gray box, and a piece of advanced technology filled with lots of keys! It was my first encounter with a PC computer in my childhood.</p>
+          
+          <Image src={rezaImage} alt="Reza Zahedi in NYC" loading="eager" width="300" height="300" class='reza' />
+
+          <p>Witnessing my fascination, my brother gifted me a Pascal programming book next summer. That summer, I immersed myself day and night, eager to learn it. The result? I created bunch of executable programs, including a midi piano note player and a snake game. That marked the beginning of my passion for programming, devloping and building.</p>
+
+          <p>Fast forward to today, with all the up and down, I'm a web developer with over eight years of experience crafting dynamic and efficient web solutions. My journey began with those humble beginnings, fueled by a curiosity that led me to explore the depths of technology. From a solid foundation in PHP and MySQL, I seamlessly transitioned to modern tech stacks like Node.js, React, Next.js, Express.js, Firebase and MongoDB.</p>
+          
+          <p>With a knack for design and proficiency in tools like Figma and Photoshop, I can transform concepts into visually stunning interfaces, and interface designs into fully functional websites and web applications with performance, responsiveness and accessibility in mind.</p>
+
+          <p>Although I've honed my skills in LAMP, PHP frameworks and CMSs, my focus now shifted on crafting bespoke solutions using modern JavaScript tools and stacks for building scalable, maintainable, and performant web applications.</p>
+
+          <p>Here I am, at the heart of technology in the Bay Area, still driven by the same passion for learning and building. Let's collaborate and build something remarkable together!</p>
+          
+          <p>You can contact me through email at r.zahedi@gmail.com. Alternatively, you can also connect with me on <a href="https://linkedin.com/in/rezahedi" target="_blank">LinkedIn</a> or <a href="https://github.com/rezahedi">Github</a>.</p>
+        </div>
+      </article>
+		</div>
+	</main>
+	<Footer />
+</body>
+</html>

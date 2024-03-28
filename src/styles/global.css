@@ -7,7 +7,8 @@
 	--red:#da3654;
 	--projects:#ffa2006e;
 	--blog:#0085ff6e;
-	--talk:#3cff006e;
+	--talk:#ff00ff6e;
+	--about:#3cff006e;
 
 	--article-width:800px;
 }
@@ -192,6 +193,37 @@ main{margin:0;flex:1 1 auto}
 .article-toc ul ul{margin-left:20px}
 .article-toc h3{margin-top:0;}
 .article-toc>div{position:sticky;top:0}
+.article-toc .links{
+	display: flex;
+	gap: 10px;
+	margin-top:15px; padding-top:15px;
+	border-top: 1px solid rgba(var(--text), .1);
+	justify-content:left;
+}
+.article-toc .links a{
+	display: flex;
+	gap:5px;
+	flex-direction: column;
+	align-items: center;
+	padding:10px;
+	font-size: 0.9em;
+	text-decoration: none;
+	transition: all .2s ease-in-out;
+	opacity: 0.7;
+	border-radius: 10px;
+	color:rgb(var(--text))
+}
+.article-toc .links a:hover{
+	background-color: rgba(var(--text), .08);
+	
+	opacity: 1;
+}
+.article-toc .links svg{
+	width: 20px;
+	height: 20px;
+	fill:rgb(var(--text));
+	vertical-align: middle;
+}
 .article-content{
 	max-width:800px;
 }
@@ -241,6 +273,11 @@ pre.astro-code{
 .talk>header{background-color:var(--talk)}
 .talk .article-header{
 	background-color:var(--talk);
+}
+
+.about>header{background-color:var(--about)}
+.about .article-header{
+	background-color:var(--about);
 }
 
 a{position:relative}
