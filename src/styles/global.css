@@ -327,7 +327,22 @@ footer svg:hover{
 @media screen and (max-width:1200px) {
 	.container{margin:0 20px}
 	html{font-size:110%}
-	.article-toc{display:none}
+	.article-toc h3, .article-toc nav{display:none}
+	.article-toc{
+		float:left;
+		width:100%;
+		max-width: var(--article-width);
+		background: rgba(var(--bg));
+		margin:0 auto;
+		position:relative;
+		top:0;
+		font-size:medium;
+		line-height: normal;
+	}
+	.article-toc .links{
+		border:0;padding:0 0 20px 0;margin:0;
+		justify-content:center;
+	}
 }
 
 @media screen and (max-width:1024px) {
