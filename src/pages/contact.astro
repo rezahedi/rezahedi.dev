@@ -66,7 +66,7 @@ if (Astro.request.method === 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	<BaseHead title={'Get in Touch - ' + SITE_TITLE} description={SITE_DESCRIPTION} />
 <style>
 main .container{
 	display:flex;
@@ -139,7 +139,10 @@ button{
 	<main>
 		<header class="article-header">
 			<div class="container">
-				<h1>Let's Talk</h1>
+				<div class="page-title">
+					<h1>Get in Touch</h1>
+					<h2>Reach me here for any queries or discussions</h2>
+				</div>
 			</div>
 		</header>
 

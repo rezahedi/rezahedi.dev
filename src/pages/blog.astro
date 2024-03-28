@@ -13,7 +13,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<BaseHead title={'Articles - ' + SITE_TITLE} description={SITE_DESCRIPTION} />
 <style>
 section{
 	max-width: var(--article-width);
@@ -52,7 +52,10 @@ article a:after{
 	<main>
 		<header class="article-header">
 			<div class="container">
-				<h1>Blog</h1>
+				<div class="page-title">
+					<h1>Articles</h1>
+					<h2>Explore Insights, Ideas, and Knowledge</h2>
+				</div>
 			</div>
 		</header>
 

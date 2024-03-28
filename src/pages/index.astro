@@ -77,23 +77,21 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 	}
 }
 
-.posts{
-	display: flex;
-	flex-direction: row;
-	gap: 40px;
-}
-.posts>div{
-	flex: 1;
-}
 .posts h2{
-	margin-top: 0;
+	text-align: center;
+	font-weight: 600;
+	margin: 0;
 }
-.posts time{
+.posts h4{
+	margin-top:0;
+	font-weight: normal;
+	text-align: center;
+	color:rgba(var(--text), .6);
+	font-size: 1em;
+}
+.blocks time{
 	color:rgba(var(--text), .6);
 	font-size: .7em;
-}
-.posts hr{
-	display:none
 }
 @media (max-width: 768px) {
 	.posts{
@@ -113,6 +111,10 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 .blocks{
 	display: grid;
 	gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+.blocks h2{
+	text-align: center;
 }
 .blocks a{
 	display: block;
@@ -202,30 +204,34 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 
 			<hr class="dotted" />
 
-			<div class="posts">
-				<div>
-					<h2>Projects</h2>
-					<div class="blocks projects">
-						{projects.map((post) => (
-							<a href={post.url}>
-								<Image src={post.frontmatter.image} alt={post.frontmatter.title} loading="lazy" width="560" height="320" />
-								<article>
-									<h3>{post.frontmatter.title}</h3>
-									<time datetime={post.frontmatter.pubDate}>
-										{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-									</time>
-								</article>
-							</a>
-						))}
-					</div>
+			<section class="posts">
+				<h2>Portfolio</h2>
+				<h4>Explore My Creations and Contributions</h4>
+				<div class="blocks projects">
+					{projects.map((post) => (
+						<a href={post.url}>
+							<Image src={post.frontmatter.image} alt={post.frontmatter.title} loading="lazy" width="560" height="320" />
+							<article>
+								<h3>{post.frontmatter.title}</h3>
+								<time datetime={post.frontmatter.pubDate}>
+									{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+										year: 'numeric',
+										month: 'short',
+										day: 'numeric',
+									})}
+								</time>
+							</article>
+						</a>
+					))}
 				</div>
+			</section>
+
+			<hr class="dotted" />
+
+			<sections class="posts">
 				<div>
-					<hr class="dotted" />
-					<h2>Posts</h2>
+					<h2>Articles</h2>
+					<h4>Explore Insights, Ideas, and Knowledge</h4>
 					<div class="blocks">
 						{blogPosts.map((post) => (
 							<a href={post.url}>
@@ -244,7 +250,7 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 						))}
 					</div>
 				</div>
-			</div>
+			</sect>
 		</div>
 	</main>
 	<Footer />

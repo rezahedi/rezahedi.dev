@@ -13,7 +13,7 @@ const posts = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<BaseHead title={'Portfolio - ' + SITE_TITLE} description={SITE_DESCRIPTION} />
 <style>
 section{
 	display: grid;
@@ -101,7 +101,10 @@ article a:after{
 	<main>
 		<header class="article-header">
 			<div class="container">
-				<h1>Projects</h1>
+				<div class="page-title">
+					<h1>Portfolio</h1>
+					<h2>Explore My Creations and Contributions</h2>
+				</div>
 			</div>
 		</header>
 

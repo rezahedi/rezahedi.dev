@@ -65,7 +65,7 @@ a:hover{
 	color: inherit;
 }
 hr.dotted{
-	margin:40px 0;
+	margin:50px 0 40px 0;
 	border:none;
 	--colors-lowContrast: black;
 	--color: hsl(0 0% 43.9%);
@@ -215,7 +215,11 @@ main{margin:0;flex:1 1 auto}
 .article-title h2{font-size:1.5rem;margin:0;opacity:.8}
 .article-title h1{font-size:2.5rem;margin:0}
 .article-title time{font-size:.75rem;opacity:.7}
-
+.page-title{
+	text-align:center;
+}
+.page-title h1{font-size:2.5rem;margin:0}
+.page-title h2{font-size:1.5rem;margin:0;opacity:.8; font-weight: 300;}
 .article-content{
 	max-width:var(--article-width);
 }
