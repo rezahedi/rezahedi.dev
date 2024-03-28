@@ -12,7 +12,7 @@ const blogPosts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 
 const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-).slice(0, 3);
+).slice(0, 6);
 ---
 
 <!DOCTYPE html>
