@@ -3,7 +3,7 @@ layout: "../../layouts/projectsPost.astro"
 title: "Simple Shipment Tracking for WooCommerce - WP Plugin"
 description: "Add shipment tracking information to your WooCommerce orders and provide customers with an easy way to track their orders. Shipment tracking Info will appear in customers accounts (in the order panel) and in WooCommerce order shipped email."
 pubDate: "Dec 25, 2022"
-image: "/projects/wp-woocommerce-simple-shipment-tracking-01.png"
+image: "/projects/wp-woocommerce-simple-shipment-tracking-01_thumb.png"
 github: "https://github.com/rezahedi/wc-simple-shipment-tracking"
 category: "Projects"
 tags: ["WordPress", "WooCommerce", "PHP", "Plugin", "Email Notification", "Order Status"]
