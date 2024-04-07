@@ -280,6 +280,59 @@ pre.astro-code{
 	background-color:var(--about);
 }
 
+.github-card{
+	display:block;
+	max-width: 700px;
+	padding:30px;
+	border:1px solid rgba(var(--text), .1);
+	background-color:rgba(var(--text), .1);
+	transition: all .2s ease-in-out;
+	border-radius:10px;
+	margin:20px 0;
+}
+.github-card a::after{
+	content: none;
+}
+.github-card a, .github-card a:hover{
+	color:rgb(var(--text));
+}
+.github-card:hover{
+	background-color:rgba(var(--text), .15);
+	border:1px solid rgba(var(--text), .3);
+}
+.github-card__header img{
+	width:5rem;
+	height:5rem;
+	border-radius:50%;
+	float:right;
+	margin:10px 0 30px 30px;
+}
+.github-card__header p.title{
+	font-size:1.8rem;
+	margin:0;
+}
+.github-card__header p.desc{
+	font-size:.9rem;
+	margin:10px 0;
+}
+.github-card__footer{
+	display:flex;
+	gap:30px;
+	align-items:center;
+}
+.github-card__footer__item{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+.github-card__footer__item b{
+	font-size:1.2rem;
+}
+.github-card__footer__item span{
+	font-size:.8rem;
+	opacity:.7;
+}
+
 a{position:relative}
 a:after{
 	position:absolute;
@@ -358,6 +411,11 @@ footer svg:hover{
 	.intro .stacks img{width:50px;height:50px}
 	footer>div{display:flex;flex-direction:column;}
 	.menu a{padding:10px 15px}
+	.github-card__header img{
+		width:4rem;
+		height:4rem;
+		margin:10px 0 15px 15px;
+	}
 }
 
 @media screen and (max-width: 425px) {
