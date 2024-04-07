@@ -29,7 +29,7 @@ The next step is to implement push notifications to keep the user in the loop wi
 
 And about performance, I've employed React Lazy and Suspense to load dropdown menus lazily and the inline edit feature that doesn't affect the user interface when the page loads. No unnecessary loading – just components popping up exactly when needed, ensuring a smooth ride for the users.
 
-## Reapeat Pattern Format
+## Repeat Pattern Format
 
 Crafting habits is fun with StreakUp, I think so. Add titles, pick emojis, customize repeat patterns – daily, weekly, you name it. StreakUp adapts to whatever rhythm you're dancing to.
 
