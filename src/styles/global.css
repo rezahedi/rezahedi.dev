@@ -300,7 +300,7 @@ pre.astro-code{
 	background-color:rgba(var(--text), .07);
 	border:1px solid rgba(var(--text), .1);
 }
-.github-card img{
+.github-card img.avatar{
 	width:5rem;
 	height:5rem;
 	border-radius:50%;
@@ -323,7 +323,8 @@ pre.astro-code{
 }
 .github-card__footer__item{
 	display:flex;
-	flex-direction:column;
+	flex-direction:row;
+	gap:10px;
 	justify-content:center;
 }
 .github-card__footer__item b{
@@ -332,6 +333,16 @@ pre.astro-code{
 .github-card__footer__item span{
 	font-size:.8rem;
 	opacity:.7;
+}
+.github-card__footer svg{
+	width:1.1rem;
+	height:1.1rem;
+	margin-top:6px;
+	color: rgb(var(--text), .7);
+}
+.github-card__footer__item div{
+	display:flex;
+	flex-direction: column;
 }
 
 a{position:relative}
@@ -435,9 +446,6 @@ footer svg:hover{
 	body>header.open #menubtn svg:first-child{display:none}
 	body>header.open #menubtn svg:last-child{display:block}
 	body>header.open ul{height:calc(100vh - 85px);opacity:1}
-	.github-card__footer{
-		gap:2rem;
-	}
+	.github-card{padding:20px}
+	.github-card__footer{gap:2rem}
 }
-
-
