@@ -95,9 +95,11 @@ NutriScan is not just another simple project to me; it's a canvas for continuous
 - __PWA Implementation:__ Transform the application into a Progressive Web App for offline use and a native app-like experience.
 - __User reviews and ratings:__ Allow users to rate and review products.
 
-Contributions to the project are more than welcome! Feel free to submit issues, feature requests, or pull requests via [GitHub](https://github.com/rezahedi/nutrition-facts-scanner).
+Contributions to the project are more than welcome! Feel free to submit issues, feature requests, or pull requests.
 
-Thank you for joining me on this journey, and I invite you to explore the live demo, provide feedback, and contribute to the project's success.
+https://github.com/rezahedi/nutrition-facts-scanner
+
+Thank you for joining me on this journey, and I invite you to explore the live demo, or dig into the source code of the project.
 
 ## License
 This project is licensed under the MIT License.

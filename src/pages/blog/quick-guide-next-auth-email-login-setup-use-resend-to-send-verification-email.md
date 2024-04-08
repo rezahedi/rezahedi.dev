@@ -115,4 +115,6 @@ It’s time to put the code to the test. When users enter their email address, t
 
 I know the template of the login email looks so simple, Resend offers another fantastic collection of components called [react-email](https://react.email), which are built for creating beautiful emails using React and TypeScript, and don’t need to worry about email formats (HTML or Text) or deal with inline CSS styling, and have the flexibility to integrate Tailwind CSS. I plan to use it in my project too.
 
+https://github.com/resend/react-email
+
 Finally, let me know if you have any questions or run into any issues. And hey, if you’re curious to dive deeper, feel free to check out the StreakUp source code on [GitHub](https://github.com/rezahedi/streakup).

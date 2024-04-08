@@ -8,7 +8,9 @@ category: "Blog"
 
 Authentication is a critical part of any app. When you’re building an app, you’ll need to implement user authentication. To make things easier, I decided to create an authentication system using Next.js 13’s new App Router with the help of NextAuth as my starter template. This way, I can use it across all my next applications.
 
-In this article, I'll walk you through the basic steps, but if you are interested to learn more about Next.js 13 routing, [my project's source code are available on Github](https://github.com/rezahedi/nextjs-nextauth-starter), for example by reviewing my repository you can learn about Modal Intercepting Route, Route Grouping to having Multiple RootLayout and Protected Route or Segment and all sub-segments.
+https://github.com/rezahedi/nextjs-nextauth-starter
+
+In this article, I'll walk you through the basic steps, but if you are interested to learn more about Next.js 13 routing, my project's source code are available on Github, for example by reviewing my repository you can learn about Modal Intercepting Route, Route Grouping to having Multiple RootLayout and Protected Route or Segment and all sub-segments.
 
 <figure class="image">
   <img src="/blog/nextjs-nextauth-authentication-starter-template.png" alt="Next.js Next-Auth Starter Template">
@@ -179,4 +181,4 @@ export default function Home() {
 }
 ```
 
-Full Source Code on Github: https://github.com/rezahedi/nextjs-nextauth-starter
+Full Source Code are available on my [Github account](https://github.com/rezahedi/nextjs-nextauth-starter).

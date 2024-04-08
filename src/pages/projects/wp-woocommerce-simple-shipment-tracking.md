@@ -66,6 +66,8 @@ If you are familiar with WooCommerce, you may know that WooCommerce has a built-
 2. Use the couriers icons in the frontend or backend.
 3. Make sure that the plugin is compatible with TrackShip for WooCommerce plugin.
 
-Plugin's codes on Github: https://github.com/rezahedi/wc-simple-shipment-tracking
+Plugin's source codes on Github:
+
+https://github.com/rezahedi/wc-simple-shipment-tracking
 
 _**Note:** This plugin not tested in lower versions of Wordpress 6.x_

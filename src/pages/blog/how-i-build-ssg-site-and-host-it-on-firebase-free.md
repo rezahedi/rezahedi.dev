@@ -28,10 +28,7 @@ A static site generator is a software application that creates HTML pages from t
 
 As SSGs compiling files into static HTML, CSS, and JavaScript, This reduces the risk of security attacks and makes the website more scalable and cost-effective to host. Developers can also use version control systems to manage changes to the code and optimize the website for search engines. SSGs are a great option for websites that require speed, security, scalability, and cost-effectiveness.
 
-<figure class="image">
-  <img src="/blog/hexo-js.png" alt="Hexojs">
-  <figcaption><a href="https://github.com/hexojs/hexo">Hexojs</a></figcaption>
-</figure>
+https://github.com/hexojs/hexo
 
 I choose [Hexo](https://hexo.io/) as it’s super fast and simple framework to build a blog platform that I need for my website.
 
@@ -70,4 +67,6 @@ firebase init hosting
 firebase deploy --only hosting
 ```
 
-That’s all I did to create and host my website, [visit-bamyan.com](https://visit-bamyan.com/), and all the [visit-bamyan.com codes are available on my Github](https://github.com/rezahedi/visit-bamyan.com) to review.
+That’s all I did to create and host my website, [visit-bamyan.com](https://visit-bamyan.com/), and all the visit-bamyan.com codes are available on my Github to review.
+
+https://github.com/rezahedi/visit-bamyan.com

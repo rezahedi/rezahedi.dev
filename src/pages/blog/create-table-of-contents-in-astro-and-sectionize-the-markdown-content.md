@@ -307,4 +307,6 @@ function addIntersectionObserver()
 }
 ```
 
-I’ve tried to include links at the beginning of each code snippet to the corresponding file To my [GitHub project](https://github.com/rezahedi/rezahedi.dev) for a more in-depth exploration of the code. Feel free to drop any questions or comments. 😬
+I’ve tried to include links at the beginning of each code snippet to the corresponding file To my GitHub project for a more in-depth exploration of the code. Feel free to drop any questions or comments. 😬
+
+https://github.com/rezahedi/rezahedi.dev

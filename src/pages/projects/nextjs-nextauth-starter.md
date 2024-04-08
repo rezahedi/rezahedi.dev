@@ -10,13 +10,17 @@ category: "Projects"
 tags: ["Next.js", "TypeScript", "Next-Auth", "Intercepting Route", "Prisma", "Tailwind CSS"]
 ---
 
-This project build by [Next.js 13](https://nextjs.org/docs/app) [APP Router](https://nextjs.org/docs/app/building-your-application/routing#the-app-router), using [NextAuth](https://next-auth.js.org/getting-started/introduction) for authentication, [Modal Intercepting Routing](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes) for `/login` modal or route, and styled by Tailwind. This project also included a sample protected route and sub-routes too, It is useful for making admin dashboard. I used [Route Groups](https://nextjs.org/docs/app/building-your-application/routing/route-groups) to make multiple root layouts for each of home page and admin dashboard separatly.
+This project build by [Next.js 13 APP Router](https://nextjs.org/docs/app/building-your-application/routing#the-app-router), using [NextAuth](https://next-auth.js.org/getting-started/introduction) for authentication, [Modal Intercepting Routing](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes) for `/login` modal or route, and styled by Tailwind. This project also included a sample protected route and sub-routes too, It is useful for making admin dashboard. I used [Route Groups](https://nextjs.org/docs/app/building-your-application/routing/route-groups) to make multiple root layouts for each of home page and admin dashboard separatly.
 
 I made this project to help me understand how to use Next.js 13 APP Router structure and how to setup NextAuth, also to have a simple starter template for my future projects that need authentication.
 
 ![Homepage Screenshot](/blog/nextjs-nextauth-authentication-starter-template.png)
 
 ## Getting Started
+
+Clone the repository and navigate into the project directory:
+
+https://github.com/rezahedi/nextjs-nextauth-starter
 
 Create your .env file as the following or from the `.env.example` and fill it with your credentials, in the case of database I used Postgres hosted on Vercel with Prisma ORM, setup your database and fill the `POSTGRES_PRISMA_URL` and `POSTGRES_URL_NON_POOLING` with your database credentials.
 

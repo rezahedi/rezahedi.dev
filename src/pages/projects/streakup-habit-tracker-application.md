@@ -105,9 +105,11 @@ The app has a lot of room to perform better and grow several features; here are 
 - __Use react-email component for email template__
 - __Build CRUD admin panel using shadcn/ui__
 
-Contributions to the project are more than welcome! Feel free to submit issues, feature requests, or pull requests via [GitHub](https://github.com/rezahedi/streakup).
+Contributions to the project are more than welcome! Feel free to submit issues, feature requests, or pull requests.
 
-Finally, thank you for considering my portfolio project. I invite you to explore the live demo, provide feedback, and contribute to the project's success.
+https://github.com/rezahedi/streakup
+
+Finally, thank you for considering my portfolio project. I invite you to explore the live demo, provide feedback, and contribute to the project's so we can learn together.
 
 ## License
 This project is licensed under the MIT License.
