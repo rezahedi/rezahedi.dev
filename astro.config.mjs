@@ -8,8 +8,6 @@ import vercelServerless from "@astrojs/vercel/serverless";
 import preact from "@astrojs/preact";
 
 // https://astro.build/config
-
-// https://astro.build/config
 export default defineConfig({
   site: 'https://rezahedi.dev',
   integrations: [mdx(), sitemap(), preact()],

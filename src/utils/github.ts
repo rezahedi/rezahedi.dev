@@ -13,19 +13,16 @@ interface Options {
 export const githubCard: RehypePlugin = (options?: Options) => {
   const siteDomain = options?.domain ?? "";
 
-  
   // How to async fetch:
   // https://github.com/syntax-tree/unist-util-visit-parents/issues/8#issuecomment-1413405543
   return async (tree) => {
     const repos = [] as any;
 
     visit(tree, "element", (node) => {
-      console.log('nodeeeee', node)
       if (node.type != "element") return;
 
       let element = node as Element;
       if ( isAnchor(element) && isGithubRepo(getUrl(element)) ) {
-        console.log('wwwwww', element)
         repos.push(node)
       }
     });
@@ -35,7 +32,6 @@ export const githubCard: RehypePlugin = (options?: Options) => {
     for (const repo of repos) {
       const url = getUrl(repo);
       const repoData = url.split("github.com/")[1];
-      console.log('xxxxxxxxx', `https://api.github.com/repos/${repoData}`)
       promises.push(fetch(`https://api.github.com/repos/${repoData}`).then(async (res) => {
         if(res.status !== 200) return;
 
@@ -45,31 +41,28 @@ export const githubCard: RehypePlugin = (options?: Options) => {
 
         const [owner, repoName] = repoData.split("/");
         const repoCard = h("a.github-card", { href: url, target: "_blank" }, [
-          h("div.github-card__header", [
-            h("img", { src: data.owner.avatar_url, alt: data.owner.login }),
-            h("p.title", [
-              h("text", owner+"/"),
-              h("b", repoName)
+          h("img", { src: data.owner.avatar_url, alt: data.owner.login }),
+          h("p.title", [
+            h("text", owner+"/"),
+            h("b", repoName)
+          ]),
+          h("p.desc", data.description),
+          h("div.github-card__footer", [
+            h("div.github-card__footer__item", [
+              h("b", data.stargazers_count),
+              h("span", "Stars"),
             ]),
-            h("p.desc", data.description),
-            h("div.github-card__footer", [
-              h("div.github-card__footer__item", [
-                h("b", data.stargazers_count),
-                h("span", "Stars"),
-              ]),
-              h("div.github-card__footer__item", [
-                h("b", data.forks_count),
-                h("span", "Forks"),
-              ]),
-              h("div.github-card__footer__item", [
-                h("b", data.open_issues_count),
-                h("span", "Issues"),
-              ]),
-            ])
+            h("div.github-card__footer__item", [
+              h("b", data.forks_count),
+              h("span", "Forks"),
+            ]),
+            h("div.github-card__footer__item", [
+              h("b", data.open_issues_count),
+              h("span", "Issues"),
+            ]),
           ])
         ]);
         repo.tagName = "div";
-        repo.properties = {class: "github-card" };
         repo.children = [repoCard];
       }))
     }

@@ -284,40 +284,41 @@ pre.astro-code{
 	display:block;
 	max-width: 700px;
 	padding:30px;
-	border:1px solid rgba(var(--text), .1);
-	background-color:rgba(var(--text), .1);
+	background-color:rgba(var(--text), .025);
+	border:1px solid rgba(var(--text), .05);
 	transition: all .2s ease-in-out;
 	border-radius:10px;
 	margin:20px 0;
 }
-.github-card a::after{
+.github-card::after{
 	content: none;
 }
-.github-card a, .github-card a:hover{
+.github-card, .github-card:hover{
 	color:rgb(var(--text));
 }
 .github-card:hover{
-	background-color:rgba(var(--text), .15);
-	border:1px solid rgba(var(--text), .3);
+	background-color:rgba(var(--text), .07);
+	border:1px solid rgba(var(--text), .1);
 }
-.github-card__header img{
+.github-card img{
 	width:5rem;
 	height:5rem;
 	border-radius:50%;
 	float:right;
 	margin:10px 0 30px 30px;
 }
-.github-card__header p.title{
+.github-card p.title{
 	font-size:1.8rem;
+	letter-spacing: 1px;
 	margin:0;
 }
-.github-card__header p.desc{
+.github-card p.desc{
 	font-size:.9rem;
 	margin:10px 0;
 }
 .github-card__footer{
 	display:flex;
-	gap:30px;
+	gap:4rem;
 	align-items:center;
 }
 .github-card__footer__item{
@@ -434,6 +435,9 @@ footer svg:hover{
 	body>header.open #menubtn svg:first-child{display:none}
 	body>header.open #menubtn svg:last-child{display:block}
 	body>header.open ul{height:calc(100vh - 85px);opacity:1}
+	.github-card__footer{
+		gap:2rem;
+	}
 }
 
 
