@@ -110,13 +110,6 @@ pre {
 pre > code {
 	all: unset;
 }
-blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
-}
 figure{margin:0}
 figure>figcaption {
 	text-align: center;
@@ -363,6 +356,13 @@ a:hover:after{
 	transform-origin:left;
 }
 
+blockquote{
+	border-left: 4px solid rgba(var(--text), .2);
+	font-style: italic;
+	padding-left: 10px;
+	margin:20px;
+}
+
 .no-scroll{overflow:hidden}
 
 footer{
@@ -448,4 +448,5 @@ footer svg:hover{
 	body>header.open ul{height:calc(100vh - 85px);opacity:1}
 	.github-card{padding:20px}
 	.github-card__footer{gap:2rem}
+	blockquote{margin:0}
 }
