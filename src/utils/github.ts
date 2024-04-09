@@ -1,50 +1,40 @@
-// How to create Astro Markdown plugin:
-// https://www.larrymyers.com/posts/how-to-create-an-astro-markdown-plugin/
-
 import type { RehypePlugin } from "@astrojs/markdown-remark";
 import { visit } from "unist-util-visit";
 import type { Element } from "hast";
-import {h} from "hastscript";
+import { h } from "hastscript";
 
-interface Options {
-  domain: string;
-}
-
-export const githubCard: RehypePlugin = (options?: Options) => {
-  const siteDomain = options?.domain ?? "";
-
-  // How to async fetch:
-  // https://github.com/syntax-tree/unist-util-visit-parents/issues/8#issuecomment-1413405543
+export const githubCard: RehypePlugin = () => {
+  
   return async (tree) => {
     const repos = [] as any;
 
+    // Find all anchor elements that are link to a GitHub repo
     visit(tree, "element", (node) => {
       if (node.type != "element") return;
 
-      let element = node as Element;
-      if ( isAnchor(element) && isGithubRepo(getUrl(element)) ) {
+      const anchorElement = node as Element;
+      if ( isAnchor(anchorElement) && isGithubRepoURL(getURL(anchorElement)) ) {
         repos.push(node)
       }
     });
     if (repos.length == 0) return;
 
+    // Fetch data for each repo and create a GitHub card
     const promises = []
     for (const repo of repos) {
-      const url = getUrl(repo);
-      const repoData = url.split("github.com/")[1];
-      promises.push(fetch(`https://api.github.com/repos/${repoData}`).then(async (res) => {
+      const url = getURL(repo);
+      const repoPathname = url.split("github.com/")[1];
+      promises.push(fetch(`https://api.github.com/repos/${repoPathname}`).then(async (res) => {
         if(res.status !== 200) return;
 
         const data = await res.json()
 
-        if(!data.owner) return;
-
-        const [owner, repoName] = repoData.split("/");
+        const [ownerSlug, repoSlug] = repoPathname.split("/");
         const repoCard = h("a.github-card", { href: url, target: "_blank" }, [
           h("img.avatar", { src: data.owner.avatar_url, alt: data.owner.login }),
           h("p.title", [
-            h("text", owner+"/"),
-            h("b", repoName)
+            h("text", ownerSlug+"/"),
+            h("b", repoSlug)
           ]),
           h("p.desc", data.description),
           h("div.github-card__footer", [
@@ -94,24 +84,20 @@ export const githubCard: RehypePlugin = (options?: Options) => {
   }
 }
 
-const isAnchor = (element: Element) => element.tagName == "a" && element.properties && "href" in element.properties &&
+// Check if the element is an anchor
+// And the only text child is the same as the href
+// ex: <a href="http://example.com">http://example.com</a>
+const isAnchor = (element: Element) => {
+  return element.tagName == "a" && element.properties && "href" in element.properties &&
   element.children.length==1 && element.children[0].type=='text' && element.children[0].value == element.properties["href"];
+}
 
-const getUrl = (element: Element) => {
-  if (!element.properties) {
-    return "";
-  }
+const getURL = (element: Element) => {
+  if ( !element.properties || !element.properties["href"] ) return "";
 
-  const url = element.properties["href"];
-
-  if (!url) {
-    return "";
-  }
-
-  return url.toString();
+  return element.properties["href"].toString();
 };
 
-const isGithubRepo = (url: string) => {
-  // TODO: Check url for github repo pattern by regex (pattern: https://github.com/[username]/[repo])
-  return url.startsWith("https") && url.includes("github.com")
+const isGithubRepoURL = (url: string) => {
+  return /^https:\/\/(www\.)?github.com\/[a-zA-Z0-9-_\.]+\/[a-zA-Z0-9-_\.]+$/.test( url );
 };

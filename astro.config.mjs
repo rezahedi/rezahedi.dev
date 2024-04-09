@@ -14,7 +14,7 @@ export default defineConfig({
   markdown:{
     rehypePlugins: [
       sectionize,
-      [githubCard, { domain: "github.com" }]
+      githubCard
     ],
   },
   output: 'server',
