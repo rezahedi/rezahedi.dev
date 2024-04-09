@@ -116,9 +116,11 @@ figure>figcaption {
 	font-size:0.7rem;
 	opacity:0.7;
 }
-ul{list-style:none;margin:0;padding:0}
+ul, ol{list-style:none;margin:0;padding:0}
 
-.content ul{list-style:disc;margin-left:20px}
+.article-content ul{list-style:disc}
+.article-content ol{list-style:decimal}
+.article-content ul, .article-content ol{margin:20px 0 20px 20px;padding-left:20px}
 
 .container{margin:0 auto;max-width:1160px}
 
@@ -449,4 +451,5 @@ footer svg:hover{
 	.github-card{padding:20px}
 	.github-card__footer{gap:2rem}
 	blockquote{margin:0}
+		.article-content ul, .article-content ol{margin:20px 0}
 }
