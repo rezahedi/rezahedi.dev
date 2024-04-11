@@ -6,6 +6,7 @@ pubDate: "Dec 25, 2022"
 image: "/projects/wp-woocommerce-simple-shipment-tracking-01_thumb.png"
 github: "https://github.com/rezahedi/wc-simple-shipment-tracking"
 category: "Projects"
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 tags: ["WordPress", "WooCommerce", "PHP", "Plugin", "Email Notification", "Order Status"]
 ---
 

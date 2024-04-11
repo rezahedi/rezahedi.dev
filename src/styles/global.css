@@ -401,10 +401,17 @@ footer svg:hover{
 		max-width: var(--article-width);
 		background: rgba(var(--bg));
 		margin:0 auto;
+		padding-bottom: 10px;
 		position:relative;
 		top:0;
 		font-size:medium;
 		line-height: normal;
+		display:flex;
+		gap:10px;
+		justify-content: center;
+	}
+	.article-toc .author{
+		flex-grow: 1;
 	}
 	.article-toc .links{
 		border:0;padding:0 0 20px 0;margin:0;

@@ -3,6 +3,8 @@ import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import TOC from '@components/TOC.astro';
+import Author from '@components/Author.astro';
+import type { Code } from 'astro:components';
 
 export interface Props {
 	content: {
@@ -14,6 +16,12 @@ export interface Props {
 		link?: string;
 		github?: string;
 		category?: string;
+		author?: {
+			name: string;
+			handler: string;
+			avatar: string;
+			link: string;
+		}
 	},
 	headings: {
 		slug: string;
@@ -23,7 +31,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, image, link, github, category }, headings
+	content: { title, description, pubDate, updatedDate, image, link, github, category, author }, headings
 } = Astro.props;
 ---
 
@@ -57,6 +65,7 @@ const {
 					<nav class="article-toc">
 						<h3>Table of Content</h3>
 						<TOC headings={headings} />
+						<Author {...author} />
 						<div class="links">
 							{github && <a href={github} target="_blank">
 								<svg viewBox="0 0 512 512">

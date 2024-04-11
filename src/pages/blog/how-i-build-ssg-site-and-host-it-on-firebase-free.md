@@ -3,7 +3,9 @@ layout: "../../layouts/BlogPost.astro"
 title: "How I build SSG site and host it for free on Firebase"
 description: "A blog post about how I build visit-bamyan.com website by Hexojs, a SSG blog framework and host it on Google FIrebase."
 pubDate: "Mar 25 2023"
+image: "/blog/visit-bamyan.com.jpg"
 category: "Blog"
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
 
 I'm always amazed by Bamyan, a city in the central highlands of Afghanistan. The people are kind and hardworking, the young generation is curious and energetic, and the city is full of life, color, and history. When my wife got a job in local government in Bamyan, I saw it as an opportunity to use my web development skills to promote this incredible place.

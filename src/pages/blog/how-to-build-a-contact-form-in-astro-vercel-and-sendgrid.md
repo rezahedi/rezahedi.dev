@@ -4,6 +4,7 @@ title: "How to build a contact form in Astro, Vercel and SendGrid"
 description: "Learn how to build a contact form in Astrojs with Vercel, and SendGrid. We'll create the form with Astrojs, configure Vercel to handle form submissions and SSR, and integrate SendGrid for email delivery."
 pubDate: "Apr 21 2023"
 category: "Blog"
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
 
 Having contact form in your website make it easier for users to interact with you and also look more professional, but have downsides, It opens a door for spammer/hackers to give you headache too.

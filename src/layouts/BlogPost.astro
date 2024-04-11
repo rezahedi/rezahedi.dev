@@ -3,6 +3,7 @@ import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import TOC from '@components/TOC.astro';
+import Author from '@components/Author.astro';
 
 export interface Props {
 	content: {
@@ -12,6 +13,12 @@ export interface Props {
 		updatedDate?: string;
 		heroImage?: string;
 		category?: string;
+		author?: {
+			name: string;
+			handler: string;
+			avatar: string;
+			link: string;
+		}
 	},
 	headings: {
 		slug: string;
@@ -21,7 +28,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, category }, headings
+	content: { title, description, pubDate, updatedDate, heroImage, category, author }, headings
 } = Astro.props;
 ---
 
@@ -51,12 +58,17 @@ const {
 
 		<div class="container">
 			<article>
-				{headings && headings.length > 0 && (
-					<nav class="article-toc">
-						<h3>Table of Content</h3>
-						<TOC headings={headings} />
-					</nav>
-				)}
+				<nav class="article-toc">
+					{headings && headings.length > 0 && (
+						<>
+							<h3>Table of Content</h3>
+							<TOC headings={headings} />
+						</>
+					)}
+					{author && (
+						<Author {...author} />
+					)}
+				</nav>
 				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				{
 					updatedDate && (

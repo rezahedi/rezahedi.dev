@@ -3,7 +3,9 @@ layout: "../../layouts/BlogPost.astro"
 title: "Stunning Embedded Rich Cards with the Astro Markdown Plugin for GitHub Repositories"
 description: "Learn how to create rich embedded cards for GitHub repositories and npm packages in your Astro website using a custom rehype plugin by finding URLs and fetching data from third-party APIs."
 pubDate: "April 8, 2024"
+image: "/blog/dub_blog_cards_screenshot.png"
 category: "Blog"
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
 
 I was following dub.co development and specially the dub’s creator, Steven on social media, One day he shared a link to a page that the embedded cards in the content catches my eye. As you can see on the following screenshot the cards for npm package and Github repository shows beautifully more data about them. It was cool and I was like I should impalement that on my website too. It’s more useful show a rich card instead of just give links to repositories or npm packages in my content.

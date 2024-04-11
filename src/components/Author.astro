@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+
+const { name, handler, avatar, link } = Astro.props;
+
+const avatarImage = import (avatar||'');
+---
+<style>
+.author{
+	border-top: 1px solid rgba(var(--text), .1);
+	margin-top: 15px;
+	padding-top: 15px;
+}
+.author a{
+	display: flex;
+	flex-direction: row;
+	gap: .5em;
+	align-items: center;
+	margin-top: .5em;
+	color: var(--text);
+	opacity: 0.7;
+	transition: all .2s;
+	padding:10px;
+	border-radius: 10px;
+}
+.author a:hover{
+	background:rgba(var(--text), .08);
+}
+.author img {
+	width: 2.3rem;
+	border-radius: 50%;
+	margin-right: 0.5em;
+}
+.author a:hover{
+	opacity: 1;
+}
+.author div{margin-top:-5px}
+@media screen and (max-width:1200px){
+  .author{
+    border:none;
+    margin:0;
+    padding:0;
+  }
+  .author a{
+    width: fit-content;
+    margin:0
+  }
+  .author span{
+    display:none;
+  }
+  
+}
+</style>
+{name && (
+  <div class="author">
+    <span>Written by</span>
+    <a href={link} target="_blank">
+      <Image src={avatarImage} alt={name} width={64} height={64} loading='lazy' />
+      <div>
+        <b>{name}</b><br />
+        @{handler}
+      </div>
+      </a>
+  </div>
+)}
