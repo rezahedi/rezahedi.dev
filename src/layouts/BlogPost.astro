@@ -60,10 +60,10 @@ const {
 			<article>
 				<nav class="article-toc">
 					{headings && headings.length > 0 && (
-						<>
+						<div>
 							<h3>Table of Content</h3>
 							<TOC headings={headings} />
-						</>
+						</div>
 					)}
 					{author && (
 						<Author {...author} />
