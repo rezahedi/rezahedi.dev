@@ -51,15 +51,13 @@ let avatarImage = import (avatar);
   
 }
 </style>
-{name && (
-  <div class="author">
-    <span>Written by</span>
-    <a href={link} target="_blank">
-      <Image src={avatarImage} alt={name} width={64} height={64} loading='lazy' />
-      <div>
-        <b>{name}</b><br />
-        @{handler}
-      </div>
-      </a>
-  </div>
-)}
+<div class="author">
+  <span>Written by</span>
+  <a href={link} target="_blank">
+    <Image src={avatarImage} alt={name} width={64} height={64} loading='lazy' />
+    <div>
+      <b>{name}</b><br />
+      @{handler}
+    </div>
+    </a>
+</div>
