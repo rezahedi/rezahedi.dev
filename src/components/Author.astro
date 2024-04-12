@@ -54,7 +54,8 @@ const avatarImage = import(avatar);
 <div class="author">
   <span>Written by</span>
   <a href={link} target="_blank">
-    {avatarImage && <Image src={avatarImage} alt={name} width={64} height={64} loading='lazy' />}
+    <img src={avatar} alt={name} width={64} height={64} loading='lazy' />
+    <!-- {avatarImage && <Image src={avatarImage} alt={name} width={64} height={64} loading='lazy' />} -->
     <div>
       <b>{name}</b><br />
       @{handler}
