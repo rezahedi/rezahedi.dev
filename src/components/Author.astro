@@ -3,7 +3,8 @@ import { Image } from 'astro:assets';
 
 const { name, handler, avatar, link } = Astro.props;
 
-const avatarImage = import(avatar);
+const images = import.meta.glob("../assets/*");
+const avatarImage = images[avatar]();
 ---
 <style>
 .author{
@@ -54,7 +55,7 @@ const avatarImage = import(avatar);
 <div class="author">
   <span>Written by</span>
   <a href={link} target="_blank">
-    {avatarImage && <Image src={avatarImage} alt={name} width={64} height={64} loading='lazy' />}
+    <Image src={images[avatar]()} alt={name} width={64} height={64} loading='lazy' />
     <div>
       <b>{name}</b><br />
       @{handler}
