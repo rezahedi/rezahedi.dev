@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 
 const { name, handler, avatar, link } = Astro.props;
 
-let avatarImage = import (avatar);
+const avatarImage = import(avatar);
 ---
 <style>
 .author{
