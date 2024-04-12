@@ -68,7 +68,7 @@ const {
 							<TOC headings={headings} />
 						</>
 					)}
-					<Author {...author} />
+					{author && <Author name={author.name} handler={author.handler} avatar={author.avatar} link={author.link} />}
 					<div class="links">
 						{github && <a href={github} target="_blank">
 							<svg viewBox="0 0 512 512">
