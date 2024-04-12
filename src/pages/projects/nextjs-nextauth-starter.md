@@ -7,7 +7,7 @@ image: "/blog/nextjs-nextauth-authentication-starter-template_thumb.png"
 link: "https://nextjs-nextauth-starter.vercel.app"
 github: "https://github.com/rezahedi/nextjs-nextauth-starter"
 category: "Projects"
-author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 tags: ["Next.js", "TypeScript", "Next-Auth", "Intercepting Route", "Prisma", "Tailwind CSS"]
 ---
 

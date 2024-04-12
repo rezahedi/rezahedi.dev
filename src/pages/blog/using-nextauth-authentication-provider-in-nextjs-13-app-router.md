@@ -5,7 +5,7 @@ description: "Learn how to implement NextAuth.js authentication provider in Next
 pubDate: "July 25 2023"
 image: "/blog/nextjs-nextauth-authentication-starter-template.png"
 category: "Blog"
-author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
 
 Authentication is a critical part of any app. When you’re building an app, you’ll need to implement user authentication. To make things easier, I decided to create an authentication system using Next.js 13’s new App Router with the help of NextAuth as my starter template. This way, I can use it across all my next applications.

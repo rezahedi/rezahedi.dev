@@ -7,7 +7,7 @@ image: "/projects/nutriscan-nutrition-facts-scanner-01_thumb.png"
 link: "https://nutrition-facts-scanner.vercel.app"
 github: "https://github.com/rezahedi/nutrition-facts-scanner"
 category: "Projects"
-author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 tags: ["Next.js", "TypeScript", "MongoDB", "Prisma", "Barcode Detection API", "Tailwind CSS", "Vercel"]
 ---
 

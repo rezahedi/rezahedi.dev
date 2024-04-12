@@ -5,7 +5,7 @@ description: "Discover how I build a dynamic table of contents component for my 
 pubDate: "January 22 2024"
 image: "/blog/toc-table-of-contents-astro.png"
 category: "Blog"
-author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
 
 As I explored my [Astro](https://astro.build) website’s inner pages, I noticed their simplicity. To enhance the user experience and make navigation more accessible, I decided to add a sticky table of contents (TOC) in the empty column on the right side of the page’s content.

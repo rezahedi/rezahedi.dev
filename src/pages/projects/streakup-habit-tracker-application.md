@@ -7,7 +7,7 @@ image: "/projects/quick-guide-next-auth-email-login-setup-use-resend-to-send-ver
 link: "https://streakup.vercel.app"
 github: "https://github.com/rezahedi/streakup"
 category: "Projects"
-author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 tags: ["Next.js", "TypeScript", "Next-Auth", "Postgres", "Prisma", "Tailwind CSS", "Radix UI"]
 ---
 

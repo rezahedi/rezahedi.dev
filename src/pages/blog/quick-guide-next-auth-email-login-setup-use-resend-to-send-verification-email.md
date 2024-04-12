@@ -5,7 +5,7 @@ description: "This guide demonstrates how to implement email login using Next-Au
 pubDate: "January 31 2024"
 image: "/blog/quick-guide-next-auth-email-login-setup-use-resend-to-send-verification-email-01.png"
 category: "Blog"
-author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "/src/assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
+author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
 
 I’m currently working on my small portfolio project, which is a habit tracker application. It’s called [StreakUp](https://streakup.vercel.app) and you can try it out or take a look at its [github repository](https://github.com/rezahedi/streakup).
