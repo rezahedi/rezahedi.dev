@@ -250,6 +250,12 @@ main{margin:0;flex:1 1 auto}
 .article-content{
 	max-width:var(--article-width);
 }
+.article-content img{
+	width:100%;
+	max-height:500px;
+	object-fit:contain;
+	background-color:rgba(var(--text),.1);
+}
 
 pre.astro-code{
 	background-color:#273343;
