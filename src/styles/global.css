@@ -169,6 +169,8 @@ main{margin:0;flex:1 1 auto}
 .intro .me>*{flex-basis:50%}
 .intro figure img{width:100%;object-fit:cover;border-radius:60px;border-bottom-left-radius:0;aspect-ratio:6/5}
 .intro .stacks{display:flex;gap:10px;flex-wrap:wrap; align-items: center; justify-content: center;}
+body.light .ghsvg{content:url('/logos/github_light.svg')}
+body.light .prsvg{content:url('/logos/prisma_light.svg')}
 
 .article-toc{
 	float:right;
