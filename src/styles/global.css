@@ -21,22 +21,10 @@
 	--bg: 238, 238, 238;
 }
 
-/* https://fonts.google.com/specimen/Open+Sans */
 @font-face {
 	font-family: 'Sans';
-	font-style: normal;
-	font-weight: 300;
-	font-stretch: 100%;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4gaVI.woff2) format('woff2');
-}
-@font-face {
-	font-family: 'Sans';
-	font-style: normal;
-	font-weight: 600;
-	font-stretch: 100%;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/opensans/v34/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
+	src: url(./fonts/Mona-Sans.woff2) format('woff2'), url(./fonts/Mona-Sans.ttf) format('truetype');
 }
 
 html{scroll-behavior:smooth}
