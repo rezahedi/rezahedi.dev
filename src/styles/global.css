@@ -263,7 +263,14 @@ pre.astro-code{
 	background-color:var(--projects);
 }
 
-.blog>header{background-color:var(--blog)}
+.blog>header{
+	position:sticky;
+	top:0;
+	z-index:1;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	background-color:var(--blog);
+}
 .blog .article-header{
 	background-color:var(--blog);
 }
