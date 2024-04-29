@@ -398,7 +398,8 @@ footer .navfooter{
 }
 footer h4{
 	font-size:1.2rem;
-	margin:100px 0 40px 0;
+	margin:40px auto;
+	width: fit-content;
 }
 footer h4 a{
 	display:flex;
