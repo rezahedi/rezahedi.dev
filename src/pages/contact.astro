@@ -104,9 +104,9 @@ input, textarea{
 	font-size:1rem;
 	margin-bottom:10px;
 }
-input:focus, textarea:focus{
+input:focus, textarea:focus, button:focus{
 	outline:none;
-	border-bottom-color:#ccc;
+	border-color:var(--red);
 }
 textarea{
 	resize:vertical;
@@ -121,6 +121,13 @@ button{
 	font-family:inherit;
 	font-size:1rem;
 	cursor:pointer;
+	transition:all 0.2s;
+}
+button:hover{
+	border-color:var(--red);
+}
+button:active{
+	transform:scale(0.95);
 }
 .visually-hidden {
 	position: absolute;
