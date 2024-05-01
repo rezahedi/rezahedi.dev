@@ -95,9 +95,11 @@ input.error, textarea.error {
 }
 input, textarea{
 	width: 100%;
-	padding:10px 0;
+	box-sizing: border-box;
+	padding:10px 20px;
 	border:none;
-	border-bottom:2px solid #333;
+	border-radius: 25px;
+	border:2px solid #333;
 	background:none;
 	color:rgb(var(--text));
 	font-family:inherit;
@@ -115,7 +117,7 @@ textarea{
 button{
 	color:rgb(var(--text));
 	padding:10px 30px;
-	border-radius:50px;
+	border-radius:25px;
 	border:2px solid #333;
 	background:none;
 	font-family:inherit;
