@@ -3,7 +3,6 @@ layout: "../../layouts/BlogPost.astro"
 title: "Stunning Embedded Rich Cards with the Astro Markdown Plugin for GitHub Repositories"
 description: "Learn how to create rich embedded cards for GitHub repositories and npm packages in your Astro website using a custom rehype plugin by finding URLs and fetching data from third-party APIs."
 pubDate: "April 8, 2024"
-image: "/blog/dub_blog_cards_screenshot.png"
 category: "Blog"
 author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---

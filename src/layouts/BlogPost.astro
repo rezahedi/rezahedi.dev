@@ -11,8 +11,7 @@ export interface Props {
 		description: string;
 		pubDate?: string;
 		updatedDate?: string;
-		heroImage?: string;
-		category?: string;
+		image?: string;
 		author?: {
 			name: string;
 			handler: string;
@@ -24,17 +23,20 @@ export interface Props {
 		slug: string;
 		text: string;
 		depth: number;
-	}[]
+	}[],
+	url: string;
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, category, author }, headings
+	content: { title, description, pubDate, updatedDate, image, author },
+	headings,
+	url
 } = Astro.props;
 ---
 
 <html lang="en">
 <head>
-	<BaseHead title={title} description={description} />
+	<BaseHead title={title} description={description} image={(image ? image : url+'.png')} />
 	<style>
 	.title {
 		font-size: 2em;
@@ -67,7 +69,6 @@ const {
 					)}
 					{author && <Author {...author} />}
 				</nav>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				{
 					updatedDate && (
 						<div>

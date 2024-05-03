@@ -3,7 +3,6 @@ layout: "../../layouts/BlogPost.astro"
 title: "Using NextAuth authentication provider in Next.js 13 App Router"
 description: "Learn how to implement NextAuth.js authentication provider in Next.js 13 App Router and use NextAuth build-in OAuth provider like Google and Github in your app. I'll use NextAuth in server rendered pages and also client side components."
 pubDate: "July 25 2023"
-image: "/blog/nextjs-nextauth-authentication-starter-template.png"
 category: "Blog"
 author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---

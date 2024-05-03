@@ -3,7 +3,6 @@ layout: "../../layouts/BlogPost.astro"
 title: "How I build SSG site and host it for free on Firebase"
 description: "A blog post about how I build visit-bamyan.com website by Hexojs, a SSG blog framework and host it on Google FIrebase."
 pubDate: "Mar 25 2023"
-image: "/blog/visit-bamyan.com.jpg"
 category: "Blog"
 author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---

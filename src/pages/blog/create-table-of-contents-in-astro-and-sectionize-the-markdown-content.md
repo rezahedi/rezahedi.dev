@@ -3,7 +3,6 @@ layout: "../../layouts/BlogPost.astro"
 title: "Create Table of contents in Astro and sectionize the Markdown content"
 description: "Discover how I build a dynamic table of contents component for my Astro website. This blog post included how to access headings prop in Astro layout and build a dynamic table of contents component, then sectionize the markdown content of blog posts by installing a plugin and configuring Astro markdown options."
 pubDate: "January 22 2024"
-image: "/blog/toc-table-of-contents-astro.png"
 category: "Blog"
 author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
