@@ -1,8 +1,7 @@
 import fs from "fs/promises";
-import satori from "satori";
-import sharp from "sharp";
 import type { APIRoute } from "astro";
 import OGImage from "@components/og-image";
+import { ImageResponse } from '@vercel/og';
 
 export const GET: APIRoute = async ({ params, request }) => {
   const { folderSlug, slug } = params;
@@ -29,8 +28,7 @@ export const GET: APIRoute = async ({ params, request }) => {
     "./public/fonts/MonaSans-Regular.ttf"
   );
 
-  // Generate SVG
-  const svg = await satori(
+  return new ImageResponse(
     await OGImage({
       title: post.frontmatter.title || "",
       date: post.frontmatter.pubDate || "",
@@ -51,14 +49,4 @@ export const GET: APIRoute = async ({ params, request }) => {
       ],
     }
   );
-
-  // Convert SVG to PNG
-  const png = await sharp(Buffer.from(svg)).png().toBuffer();
-
-  // Return PNG
-  return new Response(png, {
-    headers: {
-      "Content-Type": "image/png",
-    },
-  });
 };
