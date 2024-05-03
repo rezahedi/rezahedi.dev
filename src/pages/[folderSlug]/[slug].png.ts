@@ -22,10 +22,10 @@ export const GET: APIRoute = async ({ params, request }) => {
   
   // Load fonts
   const fontBoldData = await fs.readFile(
-    "../../../public/fonts/MonaSans-Bold.ttf"
+    "./public/fonts/MonaSans-Bold.ttf"
   );
   const fontRegularData = await fs.readFile(
-    "../../../public/fonts/MonaSans-Regular.ttf"
+    "./public/fonts/MonaSans-Regular.ttf"
   );
 
   return new ImageResponse(
