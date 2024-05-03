@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "fs/promises";
 import type { APIRoute } from "astro";
 import OGImage from "@components/og-image";
 import { ImageResponse } from '@vercel/og';
@@ -21,10 +21,10 @@ export const GET: APIRoute = async ({ params, request }) => {
   }
   
   // Load fonts
-  const fontBoldData = fs.readFileSync(
+  const fontBoldData = await fs.readFile(
     "./public/fonts/MonaSans-Bold.ttf"
   );
-  const fontRegularData = fs.readFileSync(
+  const fontRegularData = await fs.readFile(
     "./public/fonts/MonaSans-Regular.ttf"
   );
 
@@ -40,11 +40,11 @@ export const GET: APIRoute = async ({ params, request }) => {
       fonts: [
         {
           name: "Mona-Sans-Bold",
-          data: fontBoldData.buffer,
+          data: fontBoldData,
         },
         {
           name: "Mona-Sans-Regular",
-          data: fontRegularData.buffer,
+          data: fontRegularData,
         },
       ],
     }
