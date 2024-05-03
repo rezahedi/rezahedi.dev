@@ -11,7 +11,7 @@ export interface Props {
 		description: string;
 		pubDate?: string;
 		updatedDate?: string;
-		heroImage?: string;
+		image?: string;
 		category?: string;
 		author?: {
 			name: string;
@@ -28,7 +28,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, category, author }, headings
+	content: { title, description, pubDate, updatedDate, image, category, author }, headings
 } = Astro.props;
 ---
 
@@ -67,7 +67,6 @@ const {
 					)}
 					{author && <Author {...author} />}
 				</nav>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				{
 					updatedDate && (
 						<div>
