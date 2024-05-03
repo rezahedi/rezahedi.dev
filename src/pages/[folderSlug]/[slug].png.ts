@@ -14,7 +14,6 @@ export const GET: APIRoute = async ({ params, request }) => {
 
   // Get all posts
   const allPosts = import.meta.glob("../*/*.{md, mdx}", { eager: true });
-  console.log(allPosts)
 
   // Get post by slug
   const post = allPosts[`../${folderSlug}/${slug}.md`];
