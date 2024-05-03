@@ -7,7 +7,7 @@ export const GET: APIRoute = async ({ params, request }) => {
   const { folderSlug, slug } = params;
   
   // Validate slug param
-  if (/[^a-z0-9-]/.test(slug)) {
+  if (typeof slug !== "string" || /[^a-z0-9-]/.test(slug)) {
     return new Response("Not Found", { status: 404 });
   }
 
