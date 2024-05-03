@@ -3,7 +3,6 @@ layout: "../../layouts/BlogPost.astro"
 title: "Quick Guide: Next-Auth Email Login Setup & use Resend to send verification email"
 description: "This guide demonstrates how to implement email login using Next-Auth. It covers a step-by-step instructions of Email Provider setup, using Resend for email handling and showcases customizing verification emails to send email by Resend."
 pubDate: "January 31 2024"
-image: "/blog/quick-guide-next-auth-email-login-setup-use-resend-to-send-verification-email-01.png"
 category: "Blog"
 author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
 ---
