@@ -5,7 +5,7 @@ import type { APIRoute } from "astro";
 import OGImage from "@components/og-image";
 
 export const GET: APIRoute = async ({ params, request }) => {
-  const { slug } = params;
+  const { folderSlug, slug } = params;
   
   // Validate slug param
   if (/[^a-z0-9-]/.test(slug)) {
@@ -13,10 +13,11 @@ export const GET: APIRoute = async ({ params, request }) => {
   }
 
   // Get all posts
-  const allPosts = import.meta.glob("./*.{md, mdx}", { eager: true });
+  const allPosts = import.meta.glob("../*/*.{md, mdx}", { eager: true });
+  console.log(allPosts)
 
   // Get post by slug
-  const post = allPosts[`./${slug}.md`];
+  const post = allPosts[`../${folderSlug}/${slug}.md`];
   if (!post) {
     return new Response("Not Found", { status: 404 });
   }
