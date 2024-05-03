@@ -18,10 +18,5 @@ export default defineConfig({
     ],
   },
   output: 'server',
-  adapter: vercelServerless(),
-  vite: {
-    ssr: {
-      external: ['sharp']
-    }
-  }
+  adapter: vercelServerless()
 });
