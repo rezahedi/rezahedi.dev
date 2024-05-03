@@ -19,8 +19,7 @@
     "@vercel/og": "^0.6.2",
     "astro": "^4.5.16",
     "preact": "^10.19.3",
-    "resend": "^2.1.0",
-    "satori": "^0.10.13"
+    "resend": "^2.1.0"
   },
   "devDependencies": {
     "@hbsnow/rehype-sectionize": "^1.0.7"
