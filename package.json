@@ -20,8 +20,7 @@
     "astro": "^4.5.16",
     "preact": "^10.19.3",
     "resend": "^2.1.0",
-    "satori": "^0.10.13",
-    "sharp": "^0.33.3"
+    "satori": "^0.10.13"
   },
   "devDependencies": {
     "@hbsnow/rehype-sectionize": "^1.0.7"
