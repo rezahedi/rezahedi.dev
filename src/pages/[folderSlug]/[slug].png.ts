@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import path from "path";
 import type { APIRoute } from "astro";
 import OGImage from "@components/og-image";
 import { ImageResponse } from '@vercel/og';
@@ -22,10 +23,10 @@ export const GET: APIRoute = async ({ params, request }) => {
   
   // Load fonts
   const fontBoldData = await fs.readFile(
-    "./public/fonts/MonaSans-Bold.ttf"
+    path.resolve("./public/fonts/MonaSans-Bold.ttf")
   );
   const fontRegularData = await fs.readFile(
-    "./public/fonts/MonaSans-Regular.ttf"
+    path.resolve("./public/fonts/MonaSans-Regular.ttf")
   );
 
   return new ImageResponse(
@@ -50,3 +51,15 @@ export const GET: APIRoute = async ({ params, request }) => {
     }
   );
 };
+
+// // to generate an image for each blog posts in a collection
+// export async function getStaticPaths() {
+//   const allPosts = import.meta.glob("../*/*.{md, mdx}", { eager: true });
+
+//   return allPosts.map((post) => ({
+//     params: { folderSlug: post.filePathParts[0], slug: post.filePathParts[1] },
+//     props: { post },
+//   }));
+// }
+
+// export const prerender = true;
