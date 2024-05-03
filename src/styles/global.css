@@ -284,11 +284,11 @@ body:not(.home)>header{
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	background-color:rgba(var(--header-bg), .6);
-	background-image:url('/public/bg-pattern.png')
+	background-image:url('/bg-pattern.png')
 }
 body:not(.home) .article-header{
 	background-color:rgba(var(--header-bg), .6);
-	background-image:url('/public/bg-pattern.png');
+	background-image:url('/bg-pattern.png');
 	background-position-y:-87px;
 }
 
@@ -500,7 +500,7 @@ footer svg:hover{
 		justify-content:center;
 		opacity:0;
 		transition:.2s ease-out;
-		background-image:url('/public/bg-pattern.png');
+		background-image:url('/bg-pattern.png');
 		background-position-y:-87px;
 	}
 	.home .menu ul{
