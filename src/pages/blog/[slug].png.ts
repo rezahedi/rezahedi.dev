@@ -12,11 +12,11 @@ export const GET: APIRoute = async ({ params, request }) => {
     return new Response("Not Found", { status: 404 });
   }
 
-  // Get all blog's posts
-  const allBlogPosts = import.meta.glob("/src/pages/blog/*.{md, mdx}", { eager: true });
+  // Get all posts
+  const allPosts = import.meta.glob("./*.{md, mdx}", { eager: true });
 
   // Get post by slug
-  const post = allBlogPosts[`/src/pages/blog/${slug}.md`];
+  const post = allPosts[`./${slug}.md`];
   if (!post) {
     return new Response("Not Found", { status: 404 });
   }
