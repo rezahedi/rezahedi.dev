@@ -53,3 +53,29 @@ export const GET: APIRoute = async ({ params, request }) => {
     }
   );
 };
+
+
+// to generate an image for each blog posts in a collection
+export async function getStaticPaths() {
+  const allEntries = []
+  
+  const blogEntries = await getCollection("blog");
+  allEntries.push(
+    blogEntries.map((post) => ({
+      params: { folderSlug: "blog", slug: post.slug },
+      props: { post },
+    }))
+  );
+
+  const projectsEntries = await getCollection("projects");
+  allEntries.push(
+    projectsEntries.map((post) => ({
+      params: { folderSlug: "projects", slug: post.slug },
+      props: { post },
+    }))
+  );
+
+  return allEntries.flat();
+}
+
+export const prerender = true;
