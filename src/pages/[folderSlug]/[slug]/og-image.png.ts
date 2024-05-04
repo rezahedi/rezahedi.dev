@@ -2,20 +2,23 @@ import fs from "fs/promises";
 import type { APIRoute } from "astro";
 import OGImage from "@components/og-image";
 import { ImageResponse } from '@vercel/og';
+import { getCollection, getEntry, type ContentEntryMap } from "astro:content";
 
 export const GET: APIRoute = async ({ params, request }) => {
   const { folderSlug, slug } = params;
   
-  // Validate slug param
-  if (typeof slug !== "string" || /[^a-z0-9-]/.test(slug)) {
+  // Validate params
+  if (
+    typeof folderSlug !== "string" ||
+    /[^a-z]/.test(folderSlug) ||
+    typeof slug !== "string" ||
+    /[^a-z0-9-]/.test(slug)
+  ) {
     return new Response("Not Found", { status: 404 });
   }
 
-  // Get all posts
-  const allPosts = import.meta.glob("../../*/*.{md, mdx}", { eager: true });
-
   // Get post by slug
-  const post = allPosts[`../../${folderSlug}/${slug}.md`];
+  const post = await getEntry(folderSlug as keyof ContentEntryMap, slug);
   if (!post) {
     return new Response("Not Found", { status: 404 });
   }
@@ -30,9 +33,9 @@ export const GET: APIRoute = async ({ params, request }) => {
 
   return new ImageResponse(
     await OGImage({
-      title: post.frontmatter.title || "",
-      date: post.frontmatter.pubDate || "",
-      author: post.frontmatter.author.name || "",
+      title: post.data.title || "",
+      date: post.data.pubDate || "",
+      author: post.data.author.name || "",
     }),
     {
       width: 1200,
