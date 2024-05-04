@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
  
 type Props = {
@@ -8,10 +7,10 @@ type Props = {
 };
  
 export async function getStaticPaths() {
-  const blogPosts = await getCollection('blog');
-  return blogPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
+  const entries = await getCollection('blog');
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { post: entry },
   }));
 }
 
