@@ -20,7 +20,7 @@ export default function OGImage(params: {title: string, date: string, author: st
           boxSizing:'border-box',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding:'40px 80px'
+          padding:'40px 80px 100px 80px',
         }}
       >
         <h1 style={{
