@@ -3,11 +3,10 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
+import { getCollection } from 'astro:content';
 
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-);
+let posts = await getCollection('blog')
+posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 ---
 
 <!DOCTYPE html>
@@ -63,15 +62,15 @@ article a:after{
 			<section>
 				{posts.map((post) => (
 					<article>
-						<h2><a href={post.url}>{post.frontmatter.title}</a></h2>
-						<time datetime={post.frontmatter.pubDate}>
-							{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+						<h2><a href={`./blog/${post.slug}`}>{post.data.title}</a></h2>
+						<time datetime={post.data.pubDate}>
+							{new Date(post.data.pubDate).toLocaleDateString('en-us', {
 								year: 'numeric',
 								month: 'short',
 								day: 'numeric',
 							})}
 						</time>
-						<p>{post.frontmatter.description}</p>
+						<p>{post.data.description}</p>
 					</article>
 				))}
 			</section>
