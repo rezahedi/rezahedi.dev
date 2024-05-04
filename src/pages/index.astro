@@ -5,14 +5,15 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_MAIN_TITLE, SITE_DESCRIPTION } from '../config';
 import { Image } from 'astro:assets';
 import rezaImage from '../assets/reza.jpg';
+import { getCollection } from 'astro:content';
 
-const blogPosts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-).slice(0, 6);
+let blogPosts = await getCollection('blog')
+blogPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+blogPosts = blogPosts.slice(0, 6);
 
-const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-).slice(0, 6);
+let projects = await getCollection('projects')
+projects.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+projects = projects.slice(0, 6);
 ---
 
 <!DOCTYPE html>
@@ -211,12 +212,12 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 				<h4>Explore My Creations and Contributions</h4>
 				<div class="blocks projects">
 					{projects.map((post) => (
-						<a href={post.url}>
-							<Image src={post.frontmatter.image} alt={post.frontmatter.title} loading="lazy" width="560" height="320" />
+						<a href={`./projects/${post.slug}`}>
+							<Image src={post.data.image} alt={post.data.title} loading="lazy" width="560" height="320" />
 							<article>
-								<h3>{post.frontmatter.title}</h3>
-								<time datetime={post.frontmatter.pubDate}>
-									{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+								<h3>{post.data.title}</h3>
+								<time datetime={post.data.pubDate}>
+									{new Date(post.data.pubDate).toLocaleDateString('en-us', {
 										year: 'numeric',
 										month: 'short',
 										day: 'numeric',
@@ -236,17 +237,17 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}')).sort(
 					<h4>Explore Insights, Ideas, and Knowledge</h4>
 					<div class="blocks">
 						{blogPosts.map((post) => (
-							<a href={post.url}>
+							<a href={`./blog/${post.slug}`}>
 								<article>
-									<h3>{post.frontmatter.title}</h3>
-									<time datetime={post.frontmatter.pubDate}>
-										{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+									<h3>{post.data.title}</h3>
+									<time datetime={post.data.pubDate}>
+										{new Date(post.data.pubDate).toLocaleDateString('en-us', {
 											year: 'numeric',
 											month: 'short',
 											day: 'numeric',
 										})}
 									</time>
-									<p>{post.frontmatter.description}</p>
+									<p>{post.data.description}</p>
 								</article>
 							</a>
 						))}
