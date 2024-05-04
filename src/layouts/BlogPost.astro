@@ -23,15 +23,15 @@ export interface Props {
 		slug: string;
 		text: string;
 		depth: number;
-	}[],
-	url: string;
+	}[]
 }
 
 const {
 	content: { title, description, pubDate, updatedDate, image, author },
-	headings,
-	url
+	headings
 } = Astro.props;
+
+const url = Astro.url.toString();
 ---
 
 <html lang="en">
