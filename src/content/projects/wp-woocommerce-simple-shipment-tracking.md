@@ -4,6 +4,7 @@ title: "Simple Shipment Tracking for WooCommerce - WP Plugin"
 description: "Add shipment tracking information to your WooCommerce orders and provide customers with an easy way to track their orders. Shipment tracking Info will appear in customers accounts (in the order panel) and in WooCommerce order shipped email."
 pubDate: "Dec 25, 2022"
 image: "/projects/wp-woocommerce-simple-shipment-tracking-01_thumb.png"
+link: ""
 github: "https://github.com/rezahedi/wc-simple-shipment-tracking"
 category: "Projects"
 author: { name: "Reza Zahedi", handler: "rezahedi", avatar: "../assets/social-avatar.jpg", link: "https://github.com/rezahedi" }
