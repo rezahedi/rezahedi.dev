@@ -111,9 +111,9 @@ article a:after{
 			<section>
 				{posts.map((post) => (
 					<article>
-						<a href={`./projects/${post.slug}`}><img src={post.data.image} alt={post.data.title} /></a>
+						<a href={`/projects/${post.slug}`}><img src={post.data.image} alt={post.data.title} /></a>
 						<div>
-							<h2><a href={`./projects/${post.slug}`}>{post.data.title}</a></h2>
+							<h2><a href={`/projects/${post.slug}`}>{post.data.title}</a></h2>
 							<time datetime={post.data.pubDate}>
 								{new Date(post.data.pubDate).toLocaleDateString('en-us', {
 									year: 'numeric',

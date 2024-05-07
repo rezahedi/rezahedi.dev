@@ -62,7 +62,7 @@ article a:after{
 			<section>
 				{posts.map((post) => (
 					<article>
-						<h2><a href={`./blog/${post.slug}`}>{post.data.title}</a></h2>
+						<h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
 						<time datetime={post.data.pubDate}>
 							{new Date(post.data.pubDate).toLocaleDateString('en-us', {
 								year: 'numeric',
