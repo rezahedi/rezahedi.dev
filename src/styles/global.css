@@ -264,6 +264,11 @@ body:not(.home)>header{
 	z-index:1;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
+	background-image:url('/public/github-readme-bg-pattern.png')
+}
+body:not(.home) .article-header{
+	background-image:url('/public/github-readme-bg-pattern.png');
+	background-position-y:-87px;
 }
 
 .projects>header{background-color:var(--projects)}
