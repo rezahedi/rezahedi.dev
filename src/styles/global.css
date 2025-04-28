@@ -258,17 +258,20 @@ pre.astro-code{
 	background-color:#273343;
 }
 
+body:not(.home)>header{
+	position:sticky;
+	top:0;
+	z-index:1;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
 .projects>header{background-color:var(--projects)}
 .projects .article-header{
 	background-color:var(--projects);
 }
 
 .blog>header{
-	position:sticky;
-	top:0;
-	z-index:1;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
 	background-color:var(--blog);
 }
 .blog .article-header{
