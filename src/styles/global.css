@@ -10,6 +10,8 @@
 	--talk:#ff00ff6e;
 	--about:#3cff006e;
 
+	--header-bg:transparent;
+
 	--article-width:800px;
 }
 :root body.dark{
@@ -20,6 +22,20 @@
 	--text: 16, 8, 24;
 	--bg: 238, 238, 238;
 }
+
+:root body.blog{
+	--header-bg:var(--blog);
+}
+:root body.projects{
+	--header-bg:var(--projects);
+}
+:root body.talk{
+	--header-bg:var(--talk);
+}
+:root body.about{
+	--header-bg:var(--about);
+}
+
 
 @font-face {
 	font-family: 'Sans';
@@ -264,33 +280,13 @@ body:not(.home)>header{
 	z-index:1;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
+	background-color:var(--header-bg);
 	background-image:url('/public/github-readme-bg-pattern.png')
 }
 body:not(.home) .article-header{
+	background-color:var(--header-bg);
 	background-image:url('/public/github-readme-bg-pattern.png');
 	background-position-y:-87px;
-}
-
-.projects>header{background-color:var(--projects)}
-.projects .article-header{
-	background-color:var(--projects);
-}
-
-.blog>header{
-	background-color:var(--blog);
-}
-.blog .article-header{
-	background-color:var(--blog);
-}
-
-.talk>header{background-color:var(--talk)}
-.talk .article-header{
-	background-color:var(--talk);
-}
-
-.about>header{background-color:var(--about)}
-.about .article-header{
-	background-color:var(--about);
 }
 
 .github-card{
