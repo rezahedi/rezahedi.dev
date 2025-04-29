@@ -5,10 +5,10 @@
  */
 :root{
 	--red:#da3654;
-	--projects:#ffa2006e;
-	--blog:#0085ff6e;
-	--talk:#ff00ff6e;
-	--about:#3cff006e;
+	--projects:255, 162, 0;
+	--blog:0, 133, 255;
+	--talk:255, 0, 255;
+	--about:60, 255, 0;
 
 	--header-bg:transparent;
 
@@ -22,7 +22,9 @@
 	--text: 16, 8, 24;
 	--bg: 238, 238, 238;
 }
-
+:root body{
+	--header-bg:var(--bg);
+}
 :root body.blog{
 	--header-bg:var(--blog);
 }
@@ -280,11 +282,11 @@ body:not(.home)>header{
 	z-index:1;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
-	background-color:var(--header-bg);
+	background-color:rgba(var(--header-bg), .6);
 	background-image:url('/public/github-readme-bg-pattern.png')
 }
 body:not(.home) .article-header{
-	background-color:var(--header-bg);
+	background-color:rgba(var(--header-bg), .6);
 	background-image:url('/public/github-readme-bg-pattern.png');
 	background-position-y:-87px;
 }
@@ -485,10 +487,12 @@ footer svg:hover{
 	.menu ul{
 		flex-direction:column;
 		width:100%;
-		position:absolute;left:0;top:85px;
+		position:absolute;left:0;top:87px;
 		height:0;
 		overflow:hidden;
-		background-color:rgb(var(--bg));
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		background-color:rgba(var(--header-bg), .6);
 		z-index:1;
 		box-sizing: border-box;
 		justify-content:center;
