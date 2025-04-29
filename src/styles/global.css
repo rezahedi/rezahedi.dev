@@ -482,7 +482,7 @@ footer svg:hover{
 
 @media screen and (max-width: 425px) {
 	html{font-size:90%}
-	.menu ul{flex-direction:column;width:100%;position:absolute;left:0;top:85px;height:0;overflow:hidden;background-color:rgb(var(--bg));z-index:1; box-sizing: border-box;justify-content:center;opacity:0;transition:.3s ease-out;
+	.menu ul{flex-direction:column;width:100%;position:absolute;left:0;top:85px;height:0;overflow:hidden;background-color:rgb(var(--bg));z-index:1; box-sizing: border-box;justify-content:center;opacity:0;transition:.2s ease-out;
 		background-image:url('/public/github-readme-bg-pattern.png');
 		background-position-y:-87px;
 	}
