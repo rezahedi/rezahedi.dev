@@ -499,7 +499,11 @@ footer svg:hover{
 
 	body>header.open #menubtn svg:first-child{display:none}
 	body>header.open #menubtn svg:last-child{display:block}
-	body>header.open ul{height:calc(100vh - 85px);opacity:1}
+	body>header.open ul{
+		background-image:url('/public/github-readme-bg-pattern.png');
+		background-position-y:-87px;
+		height:calc(100vh - 85px);opacity:1
+	}
 	.github-card{padding:20px}
 	.github-card__footer{gap:2rem}
 	blockquote{margin:0}
