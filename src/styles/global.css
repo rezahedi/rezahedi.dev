@@ -175,7 +175,7 @@ body.light .prsvg{content:url('/logos/prisma_light.svg')}
 .article-toc{
 	float:right;
 	width:300px;
-	position:sticky;top:40px;
+	position:sticky;top:140px;
 	font-size:medium;
 	line-height: normal;
 }
