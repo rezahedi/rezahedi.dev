@@ -140,9 +140,15 @@ const {title = SITE_MAIN_TITLE} = Astro.props;
     });
   });
 
+  // duplicate the <nav class="menu"> for mobile menu and append it next sibiling of <header>
+  var mobileMenu = document.querySelector("nav.menu").cloneNode(true);
+  mobileMenu.classList.add("mobile-menu");
+  document.querySelector("header").insertAdjacentElement("afterend", mobileMenu);
+
   // Menu button
   document.querySelector("#menubtn").addEventListener("click", function () {
     document.querySelector("header").classList.toggle("open");
+    document.querySelector("nav.mobile-menu").classList.toggle("open");
     document.querySelector("body").classList.toggle("no-scroll");
   });
 </script>

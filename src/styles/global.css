@@ -144,6 +144,7 @@ button.theme-mode{background:none;border:0px;margin:0;padding:10px;width:44px;he
 button.theme-mode:hover{transform:scale(.8)}
 .dark #darkIcon, .light #lightIcon{width:0;height:0;padding:0;opacity:0}
 button.theme-mode svg{fill:rgb(var(--text))}
+nav.mobile-menu{display:none}
 
 /* Animated gradient background */
 .animated-bg{
@@ -487,7 +488,7 @@ footer svg:hover{
 	.menu ul{
 		flex-direction:column;
 		width:100%;
-		position:absolute;left:0;top:87px;
+		position:fixed;left:0;top:87px;
 		height:0;
 		overflow:hidden;
 		backdrop-filter: blur(10px);
@@ -513,7 +514,8 @@ footer svg:hover{
 
 	body>header.open #menubtn svg:first-child{display:none}
 	body>header.open #menubtn svg:last-child{display:block}
-	body>header.open ul{
+	nav.mobile-menu{display:block}
+	nav.mobile-menu.open ul{
 		height:calc(100vh - 85px);opacity:1
 	}
 	.github-card{padding:20px}
