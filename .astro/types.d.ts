@@ -215,6 +215,13 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
+"ziptrip.md": {
+	id: "ziptrip.md";
+  slug: "ziptrip";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
 };
 
 	};
